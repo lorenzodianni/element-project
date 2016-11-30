@@ -43,7 +43,9 @@ const El = (function() {
      * @returns {HTMLElement}
      */
     static appendChildren(element, children) {
-      children.forEach(child => element.appendChild(child))
+      for(let child of children) {
+        element.appendChild(child)
+      }
       return element;
     }
 
@@ -146,6 +148,24 @@ const El = (function() {
      */
     static innerHTML(element, html) {
       element.innerHTML = html;
+      return element;
+    }
+
+    /*------------------------------------------------------------------------*/
+
+    /**
+     * @static
+     * @memberof El
+     *
+     * @example
+     * El.innerText(El.get('.foo'), 'Hello World');
+     *
+     * @param {HTMLElement} element
+     * @param {String} text
+     * @returns {HTMLElement}
+     */
+    static innerText(element, text) {
+      element.innerText(text);
       return element;
     }
 
