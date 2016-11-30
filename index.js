@@ -27,21 +27,21 @@ const El = (function() {
     }
 
     static setAttributes(el, attrs) {
-      for (var prop in attrs) {
+      for (let prop in attrs) {
         el.setAttribute(prop, attrs[prop]);
       }
       return el;
     }
 
     static style(el, styles) {
-      for (var prop in styles) {
+      for (let prop in styles) {
         el.style[prop] = styles[prop];
       }
       return el;
     }
 
     static generate(opt) {
-      var _el = El.create(opt.selector);
+      let _el = El.create(opt.selector);
       _el = opt.attributes ? El.setAttributes(_el, opt.attributes) : _el;
       _el = opt.children ? El.appendChildren(_el, opt.children) : _el;
       _el = opt.style ? El.style(_el, opt.style) : _el;
