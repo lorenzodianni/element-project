@@ -52,13 +52,13 @@ const El = (function() {
      *    El.get('.target-3')
      * ]);
      *
-     * @param {Element} el
+     * @param {Element} element
      * @param {Array.<Element>} children
      * @returns {Element}
      */
-    static appendChildren(el, children) {
-      children.forEach(child => el.appendChild(child))
-      return el;
+    static appendChildren(element, children) {
+      children.forEach(child => element.appendChild(child))
+      return element;
     }
 
     /*------------------------------------------------------------------------*/
@@ -86,13 +86,13 @@ const El = (function() {
      * @example
      * El.innerHTML(El.get('section'), '<div>Hello World</div>');
      *
-     * @param {Element} el
+     * @param {Element} element
      * @param {String} html
      * @returns {Element}
      */
-    static innerHTML(el, html) {
-      el.innerHTML = html;
-      return el;
+    static innerHTML(element, html) {
+      element.innerHTML = html;
+      return element;
     }
 
     /*------------------------------------------------------------------------*/
@@ -107,15 +107,15 @@ const El = (function() {
      *    class: 'card card--small'
      * });
      *
-     * @param {Element} el
+     * @param {Element} element
      * @param {Object} attrs
      * @returns {Element}
      */
-    static setAttributes(el, attrs) {
+    static setAttributes(element, attrs) {
       for (let prop in attrs) {
-        el.setAttribute(prop, attrs[prop]);
+        element.setAttribute(prop, attrs[prop]);
       }
-      return el;
+      return element;
     }
 
     /*------------------------------------------------------------------------*/
@@ -131,15 +131,15 @@ const El = (function() {
      *    background: 'blue'
      * });
      *
-     * @param {Element} el
+     * @param {Element} element
      * @param {Object} styles
      * @returns {Element}
      */
-    static style(el, styles) {
+    static style(element, styles) {
       for (let prop in styles) {
-        el.style[prop] = styles[prop];
+        element.style[prop] = styles[prop];
       }
-      return el;
+      return element;
     }
 
     /*------------------------------------------------------------------------*/
