@@ -14,10 +14,102 @@ const El = (function() {
      * @memberof El
      *
      * @example
+     * El.appendChild(El.get('.foo'), El.get('.bar'));
+     *
+     * @param {HTMLElement} element
+     * @param {HTMLElement} child
+     * @returns {HTMLElement}
+     */
+    static appendChild(element, child) {
+      element.appendChild(child);
+      return element;
+    }
+
+    /*------------------------------------------------------------------------*/
+
+    /**
+     * @static
+     * @memberof El
+     *
+     * @example
+     * El.appendChildren(El.get('.parent'), [
+     *    El.get('.target-1'),
+     *    El.get('.target-2'),
+     *    El.get('.target-3')
+     * ]);
+     *
+     * @param {HTMLElement} element
+     * @param {Array.<HTMLElement>} children
+     * @returns {HTMLElement}
+     */
+    static appendChildren(element, children) {
+      children.forEach(child => element.appendChild(child))
+      return element;
+    }
+
+    /*------------------------------------------------------------------------*/
+
+    /**
+     * @static
+     * @memberof El
+     *
+     * @example
+     * El.create('div');
+     *
+     * @param {String} selector
+     * @returns {HTMLElement}
+     */
+    static create(selector) {
+      return document.createElement(selector);
+    }
+
+    /*------------------------------------------------------------------------*/
+
+    /**
+     * @static
+     * @memberof El
+     *
+     * @example
+     * El.generate({
+     *    selector: 'ul',
+     *    attributes: {
+     *      id: 'my-list',
+     *      class: 'list list--vertical'
+     *    },
+     *    style: {
+     *      width: '50%'
+     *    },
+     *    children: [
+     *      El.generate({selector: 'li', innerHTML: '1'}),
+     *      El.generate({selector: 'li', innerHTML: '2'}),
+     *      El.generate({selector: 'li', innerHTML: '3'}),
+     *      El.generate({selector: 'li', innerHTML: '4'})
+     *    ]
+     * })
+     *
+     * @param {Object} opt
+     * @returns {HTMLElement}
+     */
+    static generate(opt) {
+      let _el = El.create(opt.selector);
+      _el = opt.attributes ? El.setAttributes(_el, opt.attributes) : _el;
+      _el = opt.children ? El.appendChildren(_el, opt.children) : _el;
+      _el = opt.style ? El.style(_el, opt.style) : _el;
+      _el = opt.innerHTML ? El.innerHTML(_el, opt.innerHTML) : _el;
+      return _el;
+    }
+
+    /*------------------------------------------------------------------------*/
+
+    /**
+     * @static
+     * @memberof El
+     *
+     * @example
      * El.get('div');
      *
      * @param {String} selector
-     * @returns {Element}
+     * @returns {HTMLElement}
      */
     static get(selector) {
       return document.querySelector(selector);
@@ -46,49 +138,11 @@ const El = (function() {
      * @memberof El
      *
      * @example
-     * El.appendChildren(El.get('.parent'), [
-     *    El.get('.target-1'),
-     *    El.get('.target-2'),
-     *    El.get('.target-3')
-     * ]);
-     *
-     * @param {Element} element
-     * @param {Array.<Element>} children
-     * @returns {Element}
-     */
-    static appendChildren(element, children) {
-      children.forEach(child => element.appendChild(child))
-      return element;
-    }
-
-    /*------------------------------------------------------------------------*/
-
-    /**
-     * @static
-     * @memberof El
-     *
-     * @example
-     * El.create('div');
-     *
-     * @param {String} selector
-     * @returns {Element}
-     */
-    static create(selector) {
-      return document.createElement(selector);
-    }
-
-    /*------------------------------------------------------------------------*/
-
-    /**
-     * @static
-     * @memberof El
-     *
-     * @example
      * El.innerHTML(El.get('section'), '<div>Hello World</div>');
      *
-     * @param {Element} element
+     * @param {HTMLElement} element
      * @param {String} html
-     * @returns {Element}
+     * @returns {HTMLElement}
      */
     static innerHTML(element, html) {
       element.innerHTML = html;
@@ -107,9 +161,9 @@ const El = (function() {
      *    class: 'card card--small'
      * });
      *
-     * @param {Element} element
+     * @param {HTMLElement} element
      * @param {Object} attrs
-     * @returns {Element}
+     * @returns {HTMLElement}
      */
     static setAttributes(element, attrs) {
       for (let prop in attrs) {
@@ -131,51 +185,15 @@ const El = (function() {
      *    background: 'blue'
      * });
      *
-     * @param {Element} element
+     * @param {HTMLElement} element
      * @param {Object} styles
-     * @returns {Element}
+     * @returns {HTMLElement}
      */
     static style(element, styles) {
       for (let prop in styles) {
         element.style[prop] = styles[prop];
       }
       return element;
-    }
-
-    /*------------------------------------------------------------------------*/
-
-    /**
-     * @static
-     * @memberof El
-     *
-     * @example
-     * El.generate({
-     *    selector: 'ul',
-     *    attributes: {
-     *      id: 'my-list',
-     *      class: 'list list--vertical'
-     *    },
-     *    style: {
-     *      width: '50%'
-     *    },
-     *    children: [
-     *      El.generate({selector: 'li', innerHTML: '1'}),
-     *      El.generate({selector: 'li', innerHTML: '2'}),
-     *      El.generate({selector: 'li', innerHTML: '3'}),
-     *      El.generate({selector: 'li', innerHTML: '4'})
-     *    ]
-     * })
-     *
-     * @param {Object} opt
-     * @returns {Element}
-     */
-    static generate(opt) {
-      let _el = El.create(opt.selector);
-      _el = opt.attributes ? El.setAttributes(_el, opt.attributes) : _el;
-      _el = opt.children ? El.appendChildren(_el, opt.children) : _el;
-      _el = opt.style ? El.style(_el, opt.style) : _el;
-      _el = opt.innerHTML ? El.innerHTML(_el, opt.innerHTML) : _el;
-      return _el;
     }
 
   }
