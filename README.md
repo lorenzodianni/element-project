@@ -56,7 +56,7 @@ El.appendChildren(El.get('.parent'), [
 
 | Param | Type | Description |
 | --- | --- | --- |
-| selector | <code>String</code> | tagName[, id, class] |
+| selector | <code>String</code> | (tag [, id, class]) |
 
 **Example**  
 ```js

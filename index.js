@@ -67,7 +67,7 @@ const El = (function() {
      * El.create('#foo.bar.baz');
      * // => <div id="foo" class="bar baz"></div>
      *
-     * @param {String} selector - tagName[, id, class]
+     * @param {String} selector - (tag [, id, class])
      * @returns {HTMLElement}
      */
     static create(selector = TAG_NAME_DIV) {
