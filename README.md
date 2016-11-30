@@ -13,6 +13,7 @@
     * [.get(selector)](#El.get) ⇒ <code>HTMLElement</code>
     * [.getAll(selector)](#El.getAll) ⇒ <code>NodeList</code>
     * [.innerHTML(element, html)](#El.innerHTML) ⇒ <code>HTMLElement</code>
+    * [.innerText(element, text)](#El.innerText) ⇒ <code>HTMLElement</code>
     * [.setAttributes(element, attrs)](#El.setAttributes) ⇒ <code>HTMLElement</code>
     * [.style(element, styles)](#El.style) ⇒ <code>HTMLElement</code>
 
@@ -53,13 +54,20 @@ El.appendChildren(El.get('.parent'), [
 ### El.create(selector) ⇒ <code>HTMLElement</code>
 **Kind**: static method of <code>[El](#El)</code>  
 
-| Param | Type |
-| --- | --- |
-| selector | <code>String</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| selector | <code>String</code> | tagName[, id, class] |
 
 **Example**  
 ```js
 El.create('div');
+// => <div></div>
+
+El.create('section#foo.bar.baz');
+// => <section id="foo" class="bar baz"></section>
+
+El.create('#foo.bar.baz');
+// => <div id="foo" class="bar baz"></div>
 ```
 <a name="El.generate"></a>
 
@@ -128,6 +136,20 @@ El.getAll('div');
 **Example**  
 ```js
 El.innerHTML(El.get('section'), '<div>Hello World</div>');
+```
+<a name="El.innerText"></a>
+
+### El.innerText(element, text) ⇒ <code>HTMLElement</code>
+**Kind**: static method of <code>[El](#El)</code>  
+
+| Param | Type |
+| --- | --- |
+| element | <code>HTMLElement</code> | 
+| text | <code>String</code> | 
+
+**Example**  
+```js
+El.innerText(El.get('.foo'), 'Hello World');
 ```
 <a name="El.setAttributes"></a>
 
