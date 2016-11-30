@@ -1,7 +1,4 @@
-# Work in progress | Don't use it
-
-# element
-javascript library for element composition
+# Elent | Work in progress | Don't use it
 
 <a name="El"></a>
 
@@ -9,50 +6,39 @@ javascript library for element composition
 **Kind**: global namespace  
 
 * [El](#El) : <code>object</code>
-    * [.get(selector)](#El.get) ⇒ <code>Element</code>
+    * [.appendChild(element, child)](#El.appendChild) ⇒ <code>HTMLElement</code>
+    * [.appendChildren(element, children)](#El.appendChildren) ⇒ <code>HTMLElement</code>
+    * [.create(selector)](#El.create) ⇒ <code>HTMLElement</code>
+    * [.generate(opt)](#El.generate) ⇒ <code>HTMLElement</code>
+    * [.get(selector)](#El.get) ⇒ <code>HTMLElement</code>
     * [.getAll(selector)](#El.getAll) ⇒ <code>NodeList</code>
-    * [.appendChildren(element, children)](#El.appendChildren) ⇒ <code>Element</code>
-    * [.create(selector)](#El.create) ⇒ <code>Element</code>
-    * [.innerHTML(element, html)](#El.innerHTML) ⇒ <code>Element</code>
-    * [.setAttributes(element, attrs)](#El.setAttributes) ⇒ <code>Element</code>
-    * [.style(element, styles)](#El.style) ⇒ <code>Element</code>
-    * [.generate(opt)](#El.generate) ⇒ <code>Element</code>
+    * [.innerHTML(element, html)](#El.innerHTML) ⇒ <code>HTMLElement</code>
+    * [.setAttributes(element, attrs)](#El.setAttributes) ⇒ <code>HTMLElement</code>
+    * [.style(element, styles)](#El.style) ⇒ <code>HTMLElement</code>
 
-<a name="El.get"></a>
+<a name="El.appendChild"></a>
 
-### El.get(selector) ⇒ <code>Element</code>
+### El.appendChild(element, child) ⇒ <code>HTMLElement</code>
 **Kind**: static method of <code>[El](#El)</code>  
 
 | Param | Type |
 | --- | --- |
-| selector | <code>String</code> | 
+| element | <code>HTMLElement</code> | 
+| child | <code>HTMLElement</code> | 
 
 **Example**  
 ```js
-El.get('div');
-```
-<a name="El.getAll"></a>
-
-### El.getAll(selector) ⇒ <code>NodeList</code>
-**Kind**: static method of <code>[El](#El)</code>  
-
-| Param | Type |
-| --- | --- |
-| selector | <code>String</code> | 
-
-**Example**  
-```js
-El.getAll('div');
+El.appendChild(El.get('.foo'), El.get('.bar'));
 ```
 <a name="El.appendChildren"></a>
 
-### El.appendChildren(element, children) ⇒ <code>Element</code>
+### El.appendChildren(element, children) ⇒ <code>HTMLElement</code>
 **Kind**: static method of <code>[El](#El)</code>  
 
 | Param | Type |
 | --- | --- |
-| element | <code>Element</code> | 
-| children | <code>Array.&lt;Element&gt;</code> | 
+| element | <code>HTMLElement</code> | 
+| children | <code>Array.&lt;HTMLElement&gt;</code> | 
 
 **Example**  
 ```js
@@ -64,7 +50,7 @@ El.appendChildren(El.get('.parent'), [
 ```
 <a name="El.create"></a>
 
-### El.create(selector) ⇒ <code>Element</code>
+### El.create(selector) ⇒ <code>HTMLElement</code>
 **Kind**: static method of <code>[El](#El)</code>  
 
 | Param | Type |
@@ -75,58 +61,9 @@ El.appendChildren(El.get('.parent'), [
 ```js
 El.create('div');
 ```
-<a name="El.innerHTML"></a>
-
-### El.innerHTML(element, html) ⇒ <code>Element</code>
-**Kind**: static method of <code>[El](#El)</code>  
-
-| Param | Type |
-| --- | --- |
-| element | <code>Element</code> | 
-| html | <code>String</code> | 
-
-**Example**  
-```js
-El.innerHTML(El.get('section'), '<div>Hello World</div>');
-```
-<a name="El.setAttributes"></a>
-
-### El.setAttributes(element, attrs) ⇒ <code>Element</code>
-**Kind**: static method of <code>[El](#El)</code>  
-
-| Param | Type |
-| --- | --- |
-| element | <code>Element</code> | 
-| attrs | <code>Object</code> | 
-
-**Example**  
-```js
-El.setAttributes(El.get('div'), {
-   id: 'my-div',
-   class: 'card card--small'
-});
-```
-<a name="El.style"></a>
-
-### El.style(element, styles) ⇒ <code>Element</code>
-**Kind**: static method of <code>[El](#El)</code>  
-
-| Param | Type |
-| --- | --- |
-| element | <code>Element</code> | 
-| styles | <code>Object</code> | 
-
-**Example**  
-```js
-El.style(El.get('div'), {
-   width: '100px',
-   height: '100px',
-   background: 'blue'
-});
-```
 <a name="El.generate"></a>
 
-### El.generate(opt) ⇒ <code>Element</code>
+### El.generate(opt) ⇒ <code>HTMLElement</code>
 **Kind**: static method of <code>[El](#El)</code>  
 
 | Param | Type |
@@ -151,4 +88,79 @@ El.generate({
      El.generate({selector: 'li', innerHTML: '4'})
    ]
 })
+```
+<a name="El.get"></a>
+
+### El.get(selector) ⇒ <code>HTMLElement</code>
+**Kind**: static method of <code>[El](#El)</code>  
+
+| Param | Type |
+| --- | --- |
+| selector | <code>String</code> | 
+
+**Example**  
+```js
+El.get('div');
+```
+<a name="El.getAll"></a>
+
+### El.getAll(selector) ⇒ <code>NodeList</code>
+**Kind**: static method of <code>[El](#El)</code>  
+
+| Param | Type |
+| --- | --- |
+| selector | <code>String</code> | 
+
+**Example**  
+```js
+El.getAll('div');
+```
+<a name="El.innerHTML"></a>
+
+### El.innerHTML(element, html) ⇒ <code>HTMLElement</code>
+**Kind**: static method of <code>[El](#El)</code>  
+
+| Param | Type |
+| --- | --- |
+| element | <code>HTMLElement</code> | 
+| html | <code>String</code> | 
+
+**Example**  
+```js
+El.innerHTML(El.get('section'), '<div>Hello World</div>');
+```
+<a name="El.setAttributes"></a>
+
+### El.setAttributes(element, attrs) ⇒ <code>HTMLElement</code>
+**Kind**: static method of <code>[El](#El)</code>  
+
+| Param | Type |
+| --- | --- |
+| element | <code>HTMLElement</code> | 
+| attrs | <code>Object</code> | 
+
+**Example**  
+```js
+El.setAttributes(El.get('div'), {
+   id: 'my-div',
+   class: 'card card--small'
+});
+```
+<a name="El.style"></a>
+
+### El.style(element, styles) ⇒ <code>HTMLElement</code>
+**Kind**: static method of <code>[El](#El)</code>  
+
+| Param | Type |
+| --- | --- |
+| element | <code>HTMLElement</code> | 
+| styles | <code>Object</code> | 
+
+**Example**  
+```js
+El.style(El.get('div'), {
+   width: '100px',
+   height: '100px',
+   background: 'blue'
+});
 ```
