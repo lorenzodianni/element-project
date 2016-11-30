@@ -16,7 +16,11 @@ const El = (function() {
      * @memberof El
      *
      * @example
-     * El.appendChild(El.get('.foo'), El.get('.bar'));
+     * El.appendChild(El.get('.foo'), El.create('.bar'));
+     *
+     * // <div class="foo">
+     * //   <div class="bar"></div>
+     * // </div>
      *
      * @param {HTMLElement} element
      * @param {HTMLElement} child
@@ -34,11 +38,17 @@ const El = (function() {
      * @memberof El
      *
      * @example
-     * El.appendChildren(El.get('.parent'), [
-     *    El.get('.target-1'),
-     *    El.get('.target-2'),
-     *    El.get('.target-3')
+     * El.appendChildren(El.get('ul#foo'), [
+     *    El.generate({selector: 'li.bar', innerText: 1}),
+     *    El.generate({selector: 'li.baz', innerText: 2}),
+     *    El.generate({selector: 'li.qux', innerText: 3}),
      * ]);
+     *
+     * // <ul id="foo">
+     * //   <li class="bar">1</li>
+     * //   <li class="baz">2</li>
+     * //   <li class="qux">3</li>
+     * // </ul>
      *
      * @param {HTMLElement} element
      * @param {Array.<HTMLElement>} children
@@ -59,13 +69,13 @@ const El = (function() {
      *
      * @example
      * El.create('div');
-     * // => <div></div>
+     * // <div></div>
      *
      * El.create('section#foo.bar.baz');
-     * // => <section id="foo" class="bar baz"></section>
+     * // <section id="foo" class="bar baz"></section>
      *
      * El.create('#foo.bar.baz');
-     * // => <div id="foo" class="bar baz"></div>
+     * // <div id="foo" class="bar baz"></div>
      *
      * @param {String} selector - (tag [, id, class])
      * @returns {HTMLElement}
@@ -107,12 +117,19 @@ const El = (function() {
      *      width: '50%'
      *    },
      *    children: [
-     *      El.generate({selector: 'li', innerHTML: '1'}),
-     *      El.generate({selector: 'li', innerHTML: '2'}),
-     *      El.generate({selector: 'li', innerHTML: '3'}),
-     *      El.generate({selector: 'li', innerHTML: '4'})
+     *      El.generate({selector: 'li', innerHTML: 1}),
+     *      El.generate({selector: 'li', innerHTML: 2}),
+     *      El.generate({selector: 'li', innerHTML: 3}),
+     *      El.generate({selector: 'li', innerHTML: 4})
      *    ]
      * })
+     *
+     * // <ul id="my-list" class="list list--vertical" style="width: 50%;">
+     * //   <li>1</li>
+     * //   <li>2</li>
+     * //   <li>3</li>
+     * //   <li>4</li>
+     * // </ul>
      *
      * @param {Object} opt
      * @returns {HTMLElement}
@@ -123,6 +140,7 @@ const El = (function() {
       _el = opt.children ? El.appendChildren(_el, opt.children) : _el;
       _el = opt.style ? El.style(_el, opt.style) : _el;
       _el = opt.innerHTML ? El.innerHTML(_el, opt.innerHTML) : _el;
+      _el = opt.innerText ? El.innerText(_el, opt.innerText) : _el;
       return _el;
     }
 
@@ -134,6 +152,10 @@ const El = (function() {
      *
      * @example
      * El.get('div');
+     * // <div></div>
+     *
+     * El.get('span#foo.bar');
+     * // <span id="foo" class="bar"></span>
      *
      * @param {String} selector
      * @returns {HTMLElement}
@@ -150,6 +172,10 @@ const El = (function() {
      *
      * @example
      * El.getAll('div');
+     * // [div, div, div, ...*]
+     *
+     * El.getAll('span.foo');
+     * // [span.foo, span.foo, span.foo, ...*]
      *
      * @param {String} selector
      * @returns {NodeList}
@@ -167,6 +193,10 @@ const El = (function() {
      * @example
      * El.innerHTML(El.get('section'), '<div>Hello World</div>');
      *
+     * // <section>
+     * //   <div>Hello World<div>
+     * // </section>
+     *
      * @param {HTMLElement} element
      * @param {String} html
      * @returns {HTMLElement}
@@ -183,14 +213,15 @@ const El = (function() {
      * @memberof El
      *
      * @example
-     * El.innerText(El.get('.foo'), 'Hello World');
+     * El.innerText(El.get('div'), 'Hello World');
+     * // <div>Hello World<div>
      *
      * @param {HTMLElement} element
      * @param {String} text
      * @returns {HTMLElement}
      */
     static innerText(element, text) {
-      element.innerText(text);
+      element.innerText = text;
       return element;
     }
 
@@ -202,9 +233,10 @@ const El = (function() {
      *
      * @example
      * El.setAttributes(El.get('div'), {
-     *    id: 'my-div',
-     *    class: 'card card--small'
+     *    id: 'foo',
+     *    class: 'bar baz'
      * });
+     * // <div id="foo" class="bar baz"></div>
      *
      * @param {HTMLElement} element
      * @param {Object} attrs
@@ -229,6 +261,7 @@ const El = (function() {
      *    height: '100px',
      *    background: 'blue'
      * });
+     * // <div style="width: 100px; height: 100px; background: blue"></div>
      *
      * @param {HTMLElement} element
      * @param {Object} styles
