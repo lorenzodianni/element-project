@@ -130,16 +130,17 @@ const El = (function() {
      * //   <li>4</li>
      * // </ul>
      *
-     * @param {Object} opt
+     * @param {String} selector
+     * @param {Object} options
      * @returns {HTMLElement}
      */
-    static generate(selector, opt) {
+    static generate(selector, options) {
       let _el = El.create(selector);
-      _el = opt.attributes ? El.setAttributes(_el, opt.attributes) : _el;
-      _el = opt.children ? El.appendChildren(_el, opt.children) : _el;
-      _el = opt.style ? El.style(_el, opt.style) : _el;
-      _el = opt.innerHTML ? El.innerHTML(_el, opt.innerHTML) : _el;
-      _el = opt.innerText ? El.innerText(_el, opt.innerText) : _el;
+      _el = options.attributes ? El.setAttributes(_el, options.attributes) : _el;
+      _el = options.children ? El.appendChildren(_el, options.children) : _el;
+      _el = options.style ? El.style(_el, options.style) : _el;
+      _el = options.innerHTML ? El.innerHTML(_el, options.innerHTML) : _el;
+      _el = options.innerText ? El.innerText(_el, options.innerText) : _el;
       return _el;
     }
 

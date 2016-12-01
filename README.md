@@ -9,7 +9,7 @@
     * [.appendChild(element, child)](#El.appendChild) ⇒ <code>HTMLElement</code>
     * [.appendChildren(element, children)](#El.appendChildren) ⇒ <code>HTMLElement</code>
     * [.create(selector)](#El.create) ⇒ <code>HTMLElement</code>
-    * [.generate(opt)](#El.generate) ⇒ <code>HTMLElement</code>
+    * [.generate(selector, options)](#El.generate) ⇒ <code>HTMLElement</code>
     * [.get(selector)](#El.get) ⇒ <code>HTMLElement</code>
     * [.getAll(selector)](#El.getAll) ⇒ <code>NodeList</code>
     * [.innerHTML(element, html)](#El.innerHTML) ⇒ <code>HTMLElement</code>
@@ -81,12 +81,13 @@ El.create('#foo.bar.baz');
 ```
 <a name="El.generate"></a>
 
-### El.generate(opt) ⇒ <code>HTMLElement</code>
+### El.generate(selector, options) ⇒ <code>HTMLElement</code>
 **Kind**: static method of <code>[El](#El)</code>  
 
 | Param | Type |
 | --- | --- |
-| opt | <code>Object</code> | 
+| selector | <code>String</code> | 
+| options | <code>Object</code> | 
 
 **Example**  
 ```js
