@@ -9,13 +9,13 @@
     * [.appendChild(element, child)](#El.appendChild) ⇒ <code>HTMLElement</code>
     * [.appendChildren(element, children)](#El.appendChildren) ⇒ <code>HTMLElement</code>
     * [.create(selector)](#El.create) ⇒ <code>HTMLElement</code>
+    * [.setAttribute(element, attrs)](#El.setAttribute) ⇒ <code>HTMLElement</code>
+    * [.style(element, styles)](#El.style) ⇒ <code>HTMLElement</code>
+    * [.innerHTML(element, html)](#El.innerHTML) ⇒ <code>HTMLElement</code>
+    * [.innerText(element, text)](#El.innerText) ⇒ <code>HTMLElement</code>
     * [.generate(selector, options)](#El.generate) ⇒ <code>HTMLElement</code>
     * [.get(selector)](#El.get) ⇒ <code>HTMLElement</code>
     * [.getAll(selector)](#El.getAll) ⇒ <code>NodeList</code>
-    * [.innerHTML(element, html)](#El.innerHTML) ⇒ <code>HTMLElement</code>
-    * [.innerText(element, text)](#El.innerText) ⇒ <code>HTMLElement</code>
-    * [.setAttributes(element, attrs)](#El.setAttributes) ⇒ <code>HTMLElement</code>
-    * [.style(element, styles)](#El.style) ⇒ <code>HTMLElement</code>
 
 <a name="El.appendChild"></a>
 
@@ -79,6 +79,76 @@ El.create('section#foo.bar.baz');
 El.create('#foo.bar.baz');
 // <div id="foo" class="bar baz"></div>
 ```
+<a name="El.setAttribute"></a>
+
+### El.setAttribute(element, attrs) ⇒ <code>HTMLElement</code>
+**Kind**: static method of <code>[El](#El)</code>  
+
+| Param | Type |
+| --- | --- |
+| element | <code>HTMLElement</code> | 
+| attrs | <code>Object</code> | 
+
+**Example**  
+```js
+El.setAttribute(El.get('div'), {
+   id: 'foo',
+   class: 'bar baz'
+});
+// <div id="foo" class="bar baz"></div>
+```
+<a name="El.style"></a>
+
+### El.style(element, styles) ⇒ <code>HTMLElement</code>
+**Kind**: static method of <code>[El](#El)</code>  
+
+| Param | Type |
+| --- | --- |
+| element | <code>HTMLElement</code> | 
+| styles | <code>Object</code> | 
+
+**Example**  
+```js
+El.style(El.get('div'), {
+   width: '100px',
+   height: '100px',
+   background: 'blue'
+});
+// <div style="width: 100px; height: 100px; background: blue"></div>
+```
+<a name="El.innerHTML"></a>
+
+### El.innerHTML(element, html) ⇒ <code>HTMLElement</code>
+**Kind**: static method of <code>[El](#El)</code>  
+
+| Param | Type |
+| --- | --- |
+| element | <code>HTMLElement</code> | 
+| html | <code>String</code> | 
+
+**Example**  
+```js
+El.innerHTML(El.get('section'), '<div>Hello World</div>');
+
+// <section>
+//   <div>Hello World<div>
+// </section>
+```
+<a name="El.innerText"></a>
+
+### El.innerText(element, text) ⇒ <code>HTMLElement</code>
+**Kind**: static method of <code>[El](#El)</code>  
+
+| Param | Type |
+| --- | --- |
+| element | <code>HTMLElement</code> | 
+| text | <code>String</code> | 
+
+**Example**  
+```js
+El.innerText(El.get('div'), 'Hello World');
+// <div>Hello World<div>
+```
 <a name="El.generate"></a>
 
 ### El.generate(selector, options) ⇒ <code>HTMLElement</code>
@@ -92,7 +162,7 @@ El.create('#foo.bar.baz');
 **Example**  
 ```js
 El.generate('ul', {
-   attributes: {
+   attribute: {
      id: 'foo',
      class: 'bar baz'
    },
@@ -105,7 +175,7 @@ El.generate('ul', {
      El.generate('li', {innerHTML: 3}),
      El.generate('li', {innerHTML: 4})
    ]
-})
+});
 
 // <ul id="foo" class="bar baz" style="width: 50%;">
 //   <li>1</li>
@@ -147,74 +217,4 @@ El.getAll('div');
 
 El.getAll('span.foo');
 // [span.foo, span.foo, span.foo, ...*]
-```
-<a name="El.innerHTML"></a>
-
-### El.innerHTML(element, html) ⇒ <code>HTMLElement</code>
-**Kind**: static method of <code>[El](#El)</code>  
-
-| Param | Type |
-| --- | --- |
-| element | <code>HTMLElement</code> | 
-| html | <code>String</code> | 
-
-**Example**  
-```js
-El.innerHTML(El.get('section'), '<div>Hello World</div>');
-
-// <section>
-//   <div>Hello World<div>
-// </section>
-```
-<a name="El.innerText"></a>
-
-### El.innerText(element, text) ⇒ <code>HTMLElement</code>
-**Kind**: static method of <code>[El](#El)</code>  
-
-| Param | Type |
-| --- | --- |
-| element | <code>HTMLElement</code> | 
-| text | <code>String</code> | 
-
-**Example**  
-```js
-El.innerText(El.get('div'), 'Hello World');
-// <div>Hello World<div>
-```
-<a name="El.setAttributes"></a>
-
-### El.setAttributes(element, attrs) ⇒ <code>HTMLElement</code>
-**Kind**: static method of <code>[El](#El)</code>  
-
-| Param | Type |
-| --- | --- |
-| element | <code>HTMLElement</code> | 
-| attrs | <code>Object</code> | 
-
-**Example**  
-```js
-El.setAttributes(El.get('div'), {
-   id: 'foo',
-   class: 'bar baz'
-});
-// <div id="foo" class="bar baz"></div>
-```
-<a name="El.style"></a>
-
-### El.style(element, styles) ⇒ <code>HTMLElement</code>
-**Kind**: static method of <code>[El](#El)</code>  
-
-| Param | Type |
-| --- | --- |
-| element | <code>HTMLElement</code> | 
-| styles | <code>Object</code> | 
-
-**Example**  
-```js
-El.style(El.get('div'), {
-   width: '100px',
-   height: '100px',
-   background: 'blue'
-});
-// <div style="width: 100px; height: 100px; background: blue"></div>
 ```
