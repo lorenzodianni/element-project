@@ -4,5 +4,8 @@ module.exports = {
   "env": {
     "browser": true,
     "node": true
+  },
+  "rules": {
+    "max-len": [2, {"code": 90}]
   }
 };
