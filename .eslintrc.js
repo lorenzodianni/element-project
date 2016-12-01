@@ -6,6 +6,6 @@ module.exports = {
     "node": true
   },
   "rules": {
-    "max-len": [2, {"code": 90}]
+    "max-len": [2, 90]
   }
 };
