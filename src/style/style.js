@@ -17,7 +17,7 @@
  */
 export function style(element, styles) {
   for (let prop in styles) {
-    if(styles.hasOwnProperty(prop)) {
+    if (styles.hasOwnProperty(prop)) {
       element.style[prop] = styles[prop];
     }
   }

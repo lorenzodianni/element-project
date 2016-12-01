@@ -15,8 +15,8 @@
  * // <div id="foo" class="bar baz"></div>
  */
 export function setAttribute(element, attrs) {
-  for(let prop in attrs) {
-    if(attrs.hasOwnProperty(prop)) {
+  for (let prop in attrs) {
+    if (attrs.hasOwnProperty(prop)) {
       element.setAttribute(prop, attrs[prop]);
     }
   }

@@ -20,7 +20,7 @@
  * // </ul>
  */
 export function appendChildren(element, children) {
-  for(let child = 0; child < children.length; child++) {
+  for (let child = 0; child < children.length; child++) {
     element.appendChild(children[child]);
   }
   return element;
