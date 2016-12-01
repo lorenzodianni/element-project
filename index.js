@@ -39,9 +39,9 @@ const El = (function() {
      *
      * @example
      * El.appendChildren(El.get('ul#foo'), [
-     *    El.generate({selector: 'li.bar', innerText: 1}),
-     *    El.generate({selector: 'li.baz', innerText: 2}),
-     *    El.generate({selector: 'li.qux', innerText: 3}),
+     *    El.generate('li.bar', {innerText: 1}),
+     *    El.generate('li.baz', {innerText: 2}),
+     *    El.generate('li.qux', {innerText: 3}),
      * ]);
      *
      * // <ul id="foo">
@@ -107,24 +107,23 @@ const El = (function() {
      * @memberof El
      *
      * @example
-     * El.generate({
-     *    selector: 'ul',
+     * El.generate('ul', {
      *    attributes: {
-     *      id: 'my-list',
-     *      class: 'list list--vertical'
+     *      id: 'foo',
+     *      class: 'bar baz'
      *    },
      *    style: {
      *      width: '50%'
      *    },
      *    children: [
-     *      El.generate({selector: 'li', innerHTML: 1}),
-     *      El.generate({selector: 'li', innerHTML: 2}),
-     *      El.generate({selector: 'li', innerHTML: 3}),
-     *      El.generate({selector: 'li', innerHTML: 4})
+     *      El.generate('li', {innerHTML: 1}),
+     *      El.generate('li', {innerHTML: 2}),
+     *      El.generate('li', {innerHTML: 3}),
+     *      El.generate('li', {innerHTML: 4})
      *    ]
      * })
      *
-     * // <ul id="my-list" class="list list--vertical" style="width: 50%;">
+     * // <ul id="foo" class="bar baz" style="width: 50%;">
      * //   <li>1</li>
      * //   <li>2</li>
      * //   <li>3</li>
@@ -134,8 +133,8 @@ const El = (function() {
      * @param {Object} opt
      * @returns {HTMLElement}
      */
-    static generate(opt) {
-      let _el = El.create(opt.selector);
+    static generate(selector, opt) {
+      let _el = El.create(selector);
       _el = opt.attributes ? El.setAttributes(_el, opt.attributes) : _el;
       _el = opt.children ? El.appendChildren(_el, opt.children) : _el;
       _el = opt.style ? El.style(_el, opt.style) : _el;

@@ -48,9 +48,9 @@ El.appendChild(El.get('.foo'), El.create('.bar'));
 **Example**  
 ```js
 El.appendChildren(El.get('ul#foo'), [
-   El.generate({selector: 'li.bar', innerText: 1}),
-   El.generate({selector: 'li.baz', innerText: 2}),
-   El.generate({selector: 'li.qux', innerText: 3}),
+   El.generate('li.bar', {innerText: 1}),
+   El.generate('li.baz', {innerText: 2}),
+   El.generate('li.qux', {innerText: 3}),
 ]);
 
 // <ul id="foo">
@@ -90,24 +90,23 @@ El.create('#foo.bar.baz');
 
 **Example**  
 ```js
-El.generate({
-   selector: 'ul',
+El.generate('ul', {
    attributes: {
-     id: 'my-list',
-     class: 'list list--vertical'
+     id: 'foo',
+     class: 'bar baz'
    },
    style: {
      width: '50%'
    },
    children: [
-     El.generate({selector: 'li', innerHTML: 1}),
-     El.generate({selector: 'li', innerHTML: 2}),
-     El.generate({selector: 'li', innerHTML: 3}),
-     El.generate({selector: 'li', innerHTML: 4})
+     El.generate('li', {innerHTML: 1}),
+     El.generate('li', {innerHTML: 2}),
+     El.generate('li', {innerHTML: 3}),
+     El.generate('li', {innerHTML: 4})
    ]
 })
 
-// <ul id="my-list" class="list list--vertical" style="width: 50%;">
+// <ul id="foo" class="bar baz" style="width: 50%;">
 //   <li>1</li>
 //   <li>2</li>
 //   <li>3</li>
