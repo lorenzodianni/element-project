@@ -22,9 +22,7 @@
   "bugs": {
     "url": "https://github.com/lorenzodianni/elent/issues"
   },
-  "dependencies": {
-    "rollup": "^0.36.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "babel-preset-es2015-rollup": "^1.2.0",
