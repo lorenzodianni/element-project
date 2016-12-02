@@ -7,6 +7,7 @@
   "license": "MIT",
   "homepage": "https://github.com/lorenzodianni/elent#readme",
   "scripts": {
+    "test": "./node_modules/.bin/jasmine-node --verbose src",
     "rollup": "./node_modules/.bin/rollup",
     "uglifyjs": "./node_modules/.bin/uglifyjs",
     "del": "./node_modules/.bin/del",
@@ -29,6 +30,8 @@
     "del-cli": "^0.2.0",
     "eslint": "^3.11.1",
     "eslint-config-google": "^0.7.1",
+    "jasmine": "^2.5.2",
+    "jasmine-node": "^1.14.5",
     "rollup": "^0.36.4",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-commonjs": "^5.0.5",
