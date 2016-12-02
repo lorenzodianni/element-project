@@ -1,6 +1,6 @@
 'use strict';
 
-import {TAG_NAME_DIV, SYMBOL_CLASS, SYMBOL_ID} from '../_constants/constants';
+import {TAG_NAME_DIV, SYMBOL_CLASS, SYMBOL_ID} from './../_constants/constants';
 
 /**
  * @static
