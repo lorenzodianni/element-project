@@ -2,7 +2,7 @@
 
 We have very precise rules over how our git commit messages can be formatted.  This leads to **more
 readable messages** that are easy to follow when looking through the **project history**.  But also,
-we use the git commit messages to **generate the Angular change log**.
+we use the git commit messages to generate the change log.
 
 ### Commit Message Format
 Each commit message consists of a **header**, a **body** and a **footer**.  The header has a special
@@ -22,8 +22,6 @@ Any line of the commit message cannot be longer 100 characters! This allows the 
 to read on GitHub as well as in various git tools.
 
 Footer should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/) if any.
-
-Samples: (even more [samples](https://github.com/angular/angular/commits/master))
 
 ```
 docs(changelog): update change log to beta.5
@@ -72,3 +70,5 @@ The footer should contain any information about **Breaking Changes** and is also
 reference GitHub issues that this commit **Closes**.
 
 **Breaking Changes** should start with the word `BREAKING CHANGE:` with a space or two newlines. The rest of the commit message is then used for this.
+
+*Commit Message Guidelines is inspired by [Angular](https://github.com/angular/angular) [CONTRIBUTING.md](https://github.com/angular/angular/blob/master/CONTRIBUTING.md)*
