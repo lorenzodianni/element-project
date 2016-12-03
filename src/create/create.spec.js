@@ -3,6 +3,14 @@
 import {create} from './create';
 
 describe('El.create', () => {
+  let EL_SPAN;
+  let EL_P;
+
+  beforeAll(() => {
+    EL_SPAN = create('span.foo#bar');
+    EL_P = create('p.foo.bar#quux.baz');
+  });
+
   it('should create HTMLNode', () => {
     expect(create('div').outerHTML).toBeHtmlString();
   });
@@ -22,14 +30,18 @@ describe('El.create', () => {
   });
 
   it('should create a span tag with class `foo` and id `bar`', () => {
-    expect(create('span.foo#bar').id).toBe('bar');
-    expect(create('span.foo#bar').classList).toContain('foo');
-    expect(create('span.foo#bar').localName).toBe('span');
+    expect(EL_SPAN.id).toBe('bar');
+    expect(EL_SPAN.classList).toContain('foo');
+    expect(EL_SPAN.localName).toBe('span');
   });
 
-  it('should create an element with class `foo bar baz` and id `quux`', () => {
-    expect(create('.foo.bar#quux.baz').id).toBe('quux');
-    expect(create('.foo.bar#quux.baz').className).toBe('foo bar baz');
-    expect(create('p.foo.bar#quux.baz').localName).toBe('p');
+  it('should create a p tag with class `foo bar baz` and id `quux`', () => {
+    expect(EL_P.id).toBe('quux');
+    expect(EL_P.className).toBe('foo bar baz');
+    expect(EL_P.localName).toBe('p');
+  });
+
+  afterAll(() => {
+    EL_SPAN = EL_P = null;
   });
 });
