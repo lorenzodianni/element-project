@@ -11,8 +11,12 @@ module.exports = function(config) {
       'karma-jasmine-matchers',
       'karma-commonjs',
       'karma-coverage',
+      'karma-spec-reporter',
       'karma-babel-preprocessor',
+      'karma-jasmine-html-reporter',
       'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-safari-launcher',
     ],
     files: [
       './src/**/*.js',
@@ -22,8 +26,9 @@ module.exports = function(config) {
       './src/**/*.js': ['babel', 'commonjs', 'coverage'],
     },
     reporters: [
-      'progress',
+      'spec',
       'coverage',
+      'kjhtml',
     ],
     port: 9876,
     colors: true,
@@ -32,7 +37,7 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     // values: 'Chrome', 'Firefox', 'Safari', 'ChromeCanary', 'IE', 'Opera', 'PhantomJS'
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'Firefox', 'Safari'],
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
@@ -43,6 +48,14 @@ module.exports = function(config) {
         {type: 'html', subdir: 'report-html'},
         {type: 'text-summary', subdir: '.', file: 'summary.txt'},
       ],
+    },
+    specReporter: {
+      maxLogLines: 5,         // limit number of lines logged per test
+      suppressErrorSummary: false,  // do not print error summary
+      suppressFailed: false,  // do not print information about failed tests
+      suppressPassed: false,  // do not print information about passed tests
+      suppressSkipped: false,  // do not print information about skipped tests
+      showSpecTiming: true, // print the time elapsed for each spec
     },
   });
 };
