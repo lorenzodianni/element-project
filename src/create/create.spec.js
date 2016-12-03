@@ -24,14 +24,12 @@ describe('El.create', () => {
   it('should create a span tag with class `foo` and id `bar`', () => {
     expect(create('span.foo#bar').id).toBe('bar');
     expect(create('span.foo#bar').classList).toContain('foo');
-    expect(create('span.foo#bar').outerHTML)
-      .toBe('<span class="foo" id="bar"></span>');
+    expect(create('span.foo#bar').localName).toBe('span');
   });
 
   it('should create an element with class `foo bar baz` and id `quux`', () => {
     expect(create('.foo.bar#quux.baz').id).toBe('quux');
     expect(create('.foo.bar#quux.baz').className).toBe('foo bar baz');
-    expect(create('p.foo.bar#quux.baz').outerHTML)
-      .toBe('<p class="foo bar baz" id="quux"></p>');
+    expect(create('p.foo.bar#quux.baz').localName).toBe('p');
   });
 });
