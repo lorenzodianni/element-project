@@ -3,12 +3,12 @@
 import {create} from './create';
 
 describe('El.create', () => {
-  let EL_SPAN;
-  let EL_P;
+  let NODE_SPAN;
+  let NODE_P;
 
   beforeAll(() => {
-    EL_SPAN = create('span.foo#bar');
-    EL_P = create('p.foo.bar#quux.baz');
+    NODE_SPAN = create('span.foo#bar');
+    NODE_P = create('p.foo.bar#quux.baz');
   });
 
   it('should create HTMLNode', () => {
@@ -30,18 +30,18 @@ describe('El.create', () => {
   });
 
   it('should create a span tag with class `foo` and id `bar`', () => {
-    expect(EL_SPAN.id).toBe('bar');
-    expect(EL_SPAN.classList).toContain('foo');
-    expect(EL_SPAN.localName).toBe('span');
+    expect(NODE_SPAN.id).toBe('bar');
+    expect(NODE_SPAN.classList).toContain('foo');
+    expect(NODE_SPAN.localName).toBe('span');
   });
 
   it('should create a p tag with class `foo bar baz` and id `quux`', () => {
-    expect(EL_P.id).toBe('quux');
-    expect(EL_P.className).toBe('foo bar baz');
-    expect(EL_P.localName).toBe('p');
+    expect(NODE_P.id).toBe('quux');
+    expect(NODE_P.className).toBe('foo bar baz');
+    expect(NODE_P.localName).toBe('p');
   });
 
   afterAll(() => {
-    EL_SPAN = EL_P = null;
+    NODE_SPAN = NODE_P = null;
   });
 });
