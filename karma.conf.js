@@ -1,15 +1,30 @@
 module.exports = function(config) {
   config.set({
     basePath: '',
-    frameworks: ['jasmine', 'commonjs'],
+    frameworks: [
+      'jasmine',
+      'jasmine-matchers',
+      'commonjs',
+    ],
+    plugins: [
+      'karma-jasmine',
+      'karma-jasmine-matchers',
+      'karma-commonjs',
+      'karma-coverage',
+      'karma-babel-preprocessor',
+      'karma-chrome-launcher',
+    ],
     files: [
       './src/**/*.js',
     ],
     exclude: [],
     preprocessors: {
-      './src/**/*.js': ['babel', 'commonjs'],
+      './src/**/*.js': ['babel', 'commonjs', 'coverage'],
     },
-    reporters: ['progress'],
+    reporters: [
+      'progress',
+      'coverage',
+    ],
     port: 9876,
     colors: true,
     // values: config.LOG_DISABLE || config.LOG_ERROR
@@ -22,5 +37,12 @@ module.exports = function(config) {
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
     concurrency: Infinity,
+    coverageReporter: {
+      dir: 'coverage',
+      reporters: [
+        {type: 'html', subdir: 'report-html'},
+        {type: 'text-summary', subdir: '.', file: 'summary.txt'},
+      ],
+    },
   });
 };

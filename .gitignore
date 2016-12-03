@@ -1,3 +1,8 @@
+.DS_Store
+.idea/
+coverage/
+out/
+
 # Logs
 logs
 *.log
@@ -35,6 +40,3 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
-.idea/
-out/
-.DS_Store
