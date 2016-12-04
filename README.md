@@ -1,7 +1,5 @@
 # Elent | Work in progress | Don't use it
 
-<a name="El"></a>lent.js
-
 ## El : <code>object</code>
 **Kind**: global namespace  
 
