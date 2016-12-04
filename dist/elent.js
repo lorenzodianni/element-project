@@ -1,7 +1,7 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-    typeof define === 'function' && define.amd ? define(['exports'], factory) :
-    (factory((global.El = global.El || {})));
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (factory((global.El = global.El || {})));
 }(this, (function (exports) { 'use strict';
 
 /**
@@ -187,20 +187,20 @@ function innerText(element, text) {
  *
  * @example
  * El.generate('ul', {
-     *    attribute: {
-     *      id: 'foo',
-     *      class: 'bar baz'
-     *    },
-     *    style: {
-     *      width: '50%'
-     *    },
-     *    children: [
-     *      El.generate('li', {innerHTML: 1}),
-     *      El.generate('li', {innerHTML: 2}),
-     *      El.generate('li', {innerHTML: 3}),
-     *      El.generate('li', {innerHTML: 4})
-     *    ]
-     * })
+ *    attribute: {
+ *      id: 'foo',
+ *      class: 'bar baz'
+ *    },
+ *    style: {
+ *      width: '50%'
+ *    },
+ *    children: [
+ *      El.generate('li', {innerHTML: 1}),
+ *      El.generate('li', {innerHTML: 2}),
+ *      El.generate('li', {innerHTML: 3}),
+ *      El.generate('li', {innerHTML: 4})
+ *    ]
+ * });
  *
  * // <ul id="foo" class="bar baz" style="width: 50%;">
  * //   <li>1</li>
@@ -210,15 +210,15 @@ function innerText(element, text) {
  * // </ul>
  */
 function generate(selector) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-    var _el = create(selector);
-    _el = options.attribute ? setAttribute(_el, options.attribute) : _el;
-    _el = options.children ? appendChildren(_el, options.children) : _el;
-    _el = options.style ? style(_el, options.style) : _el;
-    _el = options.innerHTML ? innerHTML(_el, options.innerHTML) : _el;
-    _el = options.innerText ? innerText(_el, options.innerText) : _el;
-    return _el;
+  var _el = create(selector);
+  _el = options.attribute ? setAttribute(_el, options.attribute) : _el;
+  _el = options.children ? appendChildren(_el, options.children) : _el;
+  _el = options.style ? style(_el, options.style) : _el;
+  _el = options.innerHTML ? innerHTML(_el, options.innerHTML) : _el;
+  _el = options.innerText ? innerText(_el, options.innerText) : _el;
+  return _el;
 }
 
 /**
@@ -258,6 +258,49 @@ function getAll(selector) {
 }
 
 /**
+ * @static
+ * @memberof El
+ * @param {HTMLElement} element
+ * @param {String} position - beforeBegin|afterBegin|beforeEnd|afterEnd
+ * @param {String} html
+ * @return {HTMLElement}
+ *
+ * @example
+ * // <div id="test">
+ * //   <span>World</span>
+ * // </div>
+ *
+ * El.insertAdjacentHTML(El.get('#test'), 'beforeBegin', '<span>Hello</span>');
+ * // <span>Hello</span>
+ * // <div id="test">
+ * //   <span>World</span>
+ * // </div>
+ *
+ * El.insertAdjacentHTML(El.get('#test'), 'afterBegin', '<span>Hello</span>');
+ * // <div id="test">
+ * //   <span>Hello</span>
+ * //   <span>World</span>
+ * // </div>
+ *
+ * El.insertAdjacentHTML(El.get('#test'), 'beforeEnd', '<span>Hello</span>');
+ * // <div id="test">
+ * //   <span>World</span>
+ * //   <span>Hello</span>
+ * // </div>
+ *
+ * El.insertAdjacentHTML(El.get('#test'), 'afterEnd', '<span>Hello</span>');
+ * // <div id="test">
+ * //   <span>World</span>
+ * // </div>
+ * // <span>Hello</span>
+ */
+
+function insertAdjacentHTML(element, position, html) {
+  element.insertAdjacentHTML(position, html);
+  return element;
+}
+
+/**
  * @namespace El
  */
 
@@ -269,6 +312,7 @@ exports.get = get;
 exports.getAll = getAll;
 exports.innerHTML = innerHTML;
 exports.innerText = innerText;
+exports.insertAdjacentHTML = insertAdjacentHTML;
 exports.setAttribute = setAttribute;
 exports.style = style;
 

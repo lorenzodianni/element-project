@@ -9,5 +9,6 @@ export * from './get/get';
 export * from './getAll/getAll';
 export * from './innerHTML/innerHTML';
 export * from './innerText/innerText';
+export * from './insertAdjacentHTML/insertAdjacentHTML';
 export * from './setAttribute/setAttribute';
 export * from './style/style';
