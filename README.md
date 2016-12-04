@@ -1,6 +1,6 @@
 # Elent | Work in progress | Don't use it
 
-<a name="El"></a>
+<a name="El"></a>lent.js
 
 ## El : <code>object</code>
 **Kind**: global namespace  
@@ -16,6 +16,7 @@
     * [.generate(selector, options)](#El.generate) ⇒ <code>HTMLElement</code>
     * [.get(selector)](#El.get) ⇒ <code>HTMLElement</code>
     * [.getAll(selector)](#El.getAll) ⇒ <code>NodeList</code>
+    * [.insertAdjacentHTML(element, position, html)](#El.insertAdjacentHTML) ⇒ <code>HTMLElement</code>
 
 <a name="El.appendChild"></a>
 
@@ -217,4 +218,45 @@ El.getAll('div');
 
 El.getAll('span.foo');
 // [span.foo, span.foo, span.foo, ...*]
+```
+<a name="El.insertAdjacentHTML"></a>
+
+### El.insertAdjacentHTML(element, position, html) ⇒ <code>HTMLElement</code>
+**Kind**: static method of <code>[El](#El)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>HTMLElement</code> |  |
+| position | <code>String</code> | beforeBegin|afterBegin|beforeEnd|afterEnd |
+| html | <code>String</code> |  |
+
+**Example**  
+```js
+// <div id="test">
+//   <span>World</span>
+// </div>
+
+El.insertAdjacentHTML(El.get('#test'), 'beforeBegin', '<span>Hello</span>');
+// <span>Hello</span>
+// <div id="test">
+//   <span>World</span>
+// </div>
+
+El.insertAdjacentHTML(El.get('#test'), 'afterBegin', '<span>Hello</span>');
+// <div id="test">
+//   <span>Hello</span>
+//   <span>World</span>
+// </div>
+
+El.insertAdjacentHTML(El.get('#test'), 'beforeEnd', '<span>Hello</span>');
+// <div id="test">
+//   <span>World</span>
+//   <span>Hello</span>
+// </div>
+
+El.insertAdjacentHTML(El.get('#test'), 'afterEnd', '<span>Hello</span>');
+// <div id="test">
+//   <span>World</span>
+// </div>
+// <span>Hello</span>
 ```
