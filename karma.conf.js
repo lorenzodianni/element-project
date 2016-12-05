@@ -1,5 +1,5 @@
 module.exports = function(config) {
-  config.set({
+  let configuration = {
     basePath: '',
     frameworks: [
       'jasmine',
@@ -37,7 +37,7 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     // values: 'Chrome', 'Firefox', 'Safari', 'ChromeCanary', 'IE', 'Opera', 'PhantomJS'
-    browsers: ['Chrome', 'Firefox', 'Safari'],
+    browsers: ['Chrome'],
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
@@ -62,5 +62,17 @@ module.exports = function(config) {
         presets: ['es2015']
       },
     },
-  });
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
+  }
+
+  if (process.env.TRAVIS) {
+    configuration.browsers = ['Chrome_travis_ci'];
+  }
+
+  config.set(configuration);
 };
