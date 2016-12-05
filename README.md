@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/lorenzodianni/element-project.svg?branch=master)](https://travis-ci.org/lorenzodianni/element-project)
 # element-project | Work in progress
 
 ## El : <code>object</code>
