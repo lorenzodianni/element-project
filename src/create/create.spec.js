@@ -1,8 +1,8 @@
 'use strict';
 
-import {create} from './create';
+let create = require('./create').create;
 
-describe('El.create', () => {
+describe('create', () => {
   let NODE_SPAN;
   let NODE_P;
 
