@@ -19,7 +19,7 @@ import {TAG_NAME_DIV, SYMBOL_CLASS, SYMBOL_ID} from './../_constants/constants';
  * // <div id="foo" class="bar baz"></div>
  */
 export function create(selector = TAG_NAME_DIV) {
-  if (!selector.includes(SYMBOL_CLASS) && !selector.includes(SYMBOL_ID)) {
+  if (selector.indexOf(SYMBOL_CLASS) < 0 && selector.indexOf(SYMBOL_ID) < 0) {
     return document.createElement(selector);
   }
   let _HTMLElement = null;
