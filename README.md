@@ -1,4 +1,4 @@
-# Elent | Work in progress | Don't use it
+# element-project | Work in progress
 
 ## El : <code>object</code>
 **Kind**: global namespace  
