@@ -6,7 +6,7 @@ export default {
   entry: './src/index.js',
   moduleName: 'El',
   targets: [
-    {dest: 'dist/elent.js', format: 'umd'}
+    {dest: 'dist/element-project.js', format: 'umd'}
   ],
   plugins: [
     babel({exclude: 'node_modules/**'}),

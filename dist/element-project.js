@@ -75,7 +75,7 @@ var TAG_NAME_DIV = 'div';
 function create() {
   var selector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : TAG_NAME_DIV;
 
-  if (!selector.indexOf(SYMBOL_CLASS) >= 0 && !selector.includes(SYMBOL_ID) >= 0) {
+  if (selector.indexOf(SYMBOL_CLASS) < 0 && selector.indexOf(SYMBOL_ID) < 0) {
     return document.createElement(selector);
   }
   var _HTMLElement = null;

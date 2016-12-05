@@ -1,11 +1,11 @@
 {
-  "name": "elent",
+  "name": "element-project",
   "version": "0.2.0",
   "description": "functional library for element composition",
   "main": "index.js",
   "author": "Lorenzo D'Ianni <lorenzodianni@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/lorenzodianni/elent#readme",
+  "homepage": "https://github.com/lorenzodianni/element-project#readme",
   "scripts": {
     "test": "./node_modules/.bin/karma start karma.conf.js kjhtml",
     "rollup": "./node_modules/.bin/rollup",
@@ -13,15 +13,15 @@
     "del": "./node_modules/.bin/del",
     "clean": "npm run del dist -f",
     "bundle": "npm run rollup -- -c",
-    "minify": "npm run uglifyjs -- --c --m -o dist/elent.min.js -- dist/elent.js",
+    "minify": "npm run uglifyjs -- --c --m -o dist/element-project.min.js -- dist/element-project.js",
     "dist": "npm run clean && npm run bundle && npm run minify"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lorenzodianni/elent.git"
+    "url": "git+https://github.com/lorenzodianni/element-project.git"
   },
   "bugs": {
-    "url": "https://github.com/lorenzodianni/elent/issues"
+    "url": "https://github.com/lorenzodianni/element-project/issues"
   },
   "config": {
     "ghooks": {"pre-commit": "npm run test"}
