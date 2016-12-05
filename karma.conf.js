@@ -49,6 +49,7 @@ module.exports = function(config) {
       reporters: [
         {type: 'html', subdir: 'report-html'},
         {type: 'text-summary', subdir: '.', file: 'summary.txt'},
+        {type: 'lcov'},
       ],
     },
     specReporter: {
