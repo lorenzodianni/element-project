@@ -24,7 +24,8 @@ module.exports = function(config) {
     ],
     exclude: [],
     preprocessors: {
-      './src/**/*.js': ['babel', 'commonjs', 'coverage'],
+      './src/**/*.js': ['babel', 'commonjs'],
+      './src/**/!(*spec).js': ['babel', 'commonjs', 'coverage'],
     },
     reporters: [
       'spec',
