@@ -15,6 +15,7 @@ module.exports = function(config) {
       'karma-babel-preprocessor',
       'karma-jasmine-html-reporter',
       'karma-chrome-launcher',
+      'karma-phantomjs-launcher',
       'karma-firefox-launcher',
       'karma-safari-launcher',
     ],
