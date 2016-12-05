@@ -57,5 +57,10 @@ module.exports = function(config) {
       suppressSkipped: false,  // do not print information about skipped tests
       showSpecTiming: true, // print the time elapsed for each spec
     },
+    babelPreprocessor: {
+      options: {
+        presets: ['es2015']
+      },
+    },
   });
 };
