@@ -4,7 +4,7 @@
  * @static
  * @memberof El
  * @param {HTMLElement} element
- * @param {String} position - beforeBegin|afterBegin|beforeEnd|afterEnd
+ * @param {String} position - beforeBegin/afterBegin/beforeEnd/afterEnd
  * @param {String} html
  * @return {HTMLElement}
  *
