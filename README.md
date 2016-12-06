@@ -1,3 +1,4 @@
+[![Code Climate](https://codeclimate.com/github/lorenzodianni/element-project/badges/gpa.svg)](https://codeclimate.com/github/lorenzodianni/element-project)
 [![Build Status](https://travis-ci.org/lorenzodianni/element-project.svg?branch=master)](https://travis-ci.org/lorenzodianni/element-project)
 [![codecov](https://codecov.io/gh/lorenzodianni/element-project/branch/master/graph/badge.svg)](https://codecov.io/gh/lorenzodianni/element-project)
 
