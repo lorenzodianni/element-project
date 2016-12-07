@@ -30,15 +30,15 @@ describe('El.create', () => {
   });
 
   it('should create a span tag with class `foo` and id `bar`', () => {
-    // expect(NODE_SPAN.id).toBe('bar');
-    // expect(NODE_SPAN.classList).toContain('foo');
-    // expect(NODE_SPAN.localName).toBe('span');
+    expect(NODE_SPAN.id).toBe('bar');
+    expect(NODE_SPAN.classList).toContain('foo');
+    expect(NODE_SPAN.localName).toBe('span');
   });
 
   it('should create a p tag with class `foo bar baz` and id `quux`', () => {
-    // expect(NODE_P.id).toBe('quux');
-    // expect(NODE_P.className).toBe('foo bar baz');
-    // expect(NODE_P.localName).toBe('p');
+    expect(NODE_P.id).toBe('quux');
+    expect(NODE_P.className).toBe('foo bar baz');
+    expect(NODE_P.localName).toBe('p');
   });
 
   afterAll(() => {
