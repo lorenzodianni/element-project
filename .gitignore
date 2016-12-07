@@ -2,7 +2,6 @@
 .idea/
 coverage/
 out/
-_docs/
 
 # Logs
 logs
