@@ -1,5 +1,6 @@
 {
   "opts": {
-    "template": "./docs/template"
+    "template": "./docs/template",
+    "destination": "./docs/website"
   }
 }
