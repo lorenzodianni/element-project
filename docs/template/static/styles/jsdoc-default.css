@@ -89,19 +89,13 @@ h6 {
   margin: 0
 }
 
-#main {
-  margin-left: 300px;
-  width: calc(100% - 300px);
+main {
+  margin-left: 250px;
+  width: calc(100% - 250px);
 }
 
 header {
   display: block
-}
-
-section {
-  display: block;
-  background-color: #fff;
-  padding: 0 30px;
 }
 
 .variation {
@@ -120,12 +114,12 @@ nav {
   top: 0;
   left: 0;
   display: block;
-  width: 300px;
+  width: 250px;
   height: 100%;
   padding: 24px;
   background: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0, .19), 0 6px 6px rgba(0,0,0, .23);
   overflow: auto;
-  border-right: 1px solid hsl(0, 0%, 87%);
 }
 
 nav h3 {
@@ -199,10 +193,7 @@ nav > h2 > a {
 
 footer {
   color: hsl(0, 0%, 28%);
-  margin-left: 300px;
-  display: block;
   padding: 15px;
-  font-style: italic;
   font-size: 90%;
 }
 
@@ -232,19 +223,16 @@ footer {
   color: #aaa
 }
 
-h4.name {
-  margin-top: 56px;
-  padding-top: 56px;
-  border-top: 1px solid hsl(0, 0%, 87%);
-}
-h4.name:first-of-type {
-  border: none;
-  padding-top: 0;
-  margin-top: 32px;
-}
-
 .name, .signature {
   font-family: Consolas, Monaco, 'Andale Mono', monospace
+}
+
+.method h4.name {
+  padding-top: 56px;
+  margin: 0;
+}
+.method-detail, .method-example h5 {
+  padding: 0 32px;
 }
 
 .details {
@@ -297,8 +285,8 @@ h4.name:first-of-type {
 .prettyprint {
   font-size: 13px;
   border: 1px solid #ddd;
-  padding: 16px;
-  border-radius: 3px;
+  padding: 32px;
+  margin-top: 16px;
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.05);
   overflow: auto;
 }
@@ -395,54 +383,54 @@ dl.param-type {
 .navicon-button {
   display: none;
   position: relative;
-  padding: 2.0625rem 1.5rem;
   transition: 0.25s;
   cursor: pointer;
   user-select: none;
-  opacity: .8;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #FFF;
+  box-shadow: 0 3px 6px rgba(0,0,0, .16), 0 3px 6px rgba(0,0,0, .23);
 }
 .navicon-button .navicon:before, .navicon-button .navicon:after {
   transition: 0.25s;
 }
 .navicon-button:hover {
   transition: 0.5s;
-  opacity: 1;
 }
 .navicon-button:hover .navicon:before, .navicon-button:hover .navicon:after {
   transition: 0.25s;
 }
-.navicon-button:hover .navicon:before {
-  top: .825rem;
-}
-.navicon-button:hover .navicon:after {
-  top: -.825rem;
-}
 
 /* navicon */
 .navicon {
-  position: relative;
-  width: 2.5em;
-  height: .3125rem;
-  background: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 2px;
+  background: #0095dd;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   transition: 0.3s;
   border-radius: 2.5rem;
 }
 .navicon:before, .navicon:after {
   display: block;
   content: "";
-  height: .3125rem;
-  width: 2.5rem;
-  background: #000;
+  width: 100%;
+  height: 100%;
+  background: #0095dd;
   position: absolute;
   z-index: -1;
   transition: 0.3s 0.25s;
   border-radius: 1rem;
 }
 .navicon:before {
-  top: .625rem;
+  top: -6px;
 }
 .navicon:after {
-  top: -.625rem;
+  top: 6px;
 }
 
 /* open */
@@ -470,13 +458,13 @@ dl.param-type {
 .nav-trigger:checked + label.plus .navicon:before,
 .nav-trigger:checked + label.x .navicon:before {
   transform: rotate(-45deg);
-  background: #FFF;
+  background: #0095dd;
 }
 
 .nav-trigger:checked + label.plus .navicon:after,
 .nav-trigger:checked + label.x .navicon:after {
   transform: rotate(45deg);
-  background: #FFF;
+  background: #0095dd;
 }
 
 .nav-trigger:checked + label.plus {
@@ -510,48 +498,47 @@ dl.param-type {
   z-index: 1;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 680px) {
+@media only screen and (min-width: 0px) and (max-width: 680px) {
   body {
     overflow-x: hidden;
   }
 
   nav {
     background: #FFF;
-    width: 300px;
+    width: 250px;
     height: 100%;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    left: -300px;
+    left: -250px;
     z-index: 3;
-    border-right: none;
     transition: left 0.2s;
   }
 
   .navicon-button {
     display: inline-block;
     position: fixed;
-    top: 1.5em;
-    right: 0;
+    top: 3%;
+    right: 4%;
     z-index: 2;
   }
 
-  #main {
+  main {
     width: 100%;
-    min-width: 360px;
+    margin: 0;
   }
 
-  #main h1.page-title {
+  .method-detail, .method-example h5 {
+    padding: 0 12px;
+  }
+
+  .prettyprint {
+    padding: 12px;
+  }
+
+  main h1.page-title {
     margin: 1em 0;
-  }
-
-  #main section {
-    padding: 0;
-  }
-
-  footer {
-    margin-left: 0;
   }
 }
 
@@ -560,7 +547,8 @@ dl.param-type {
     display: none;
   }
 
-  #main {
+  main {
     width: 100%;
+    margin: 0;
   }
 }

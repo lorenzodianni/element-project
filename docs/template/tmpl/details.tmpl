@@ -110,7 +110,7 @@ if (data.defaultvalue && (data.defaultvaluetype === 'object' || data.defaultvalu
     <?js if (data.meta && self.outputSourceFiles) {?>
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <?js= self.linkto(meta.shortpath) ?>, <?js= self.linkto(meta.shortpath, 'line ' + meta.lineno, null, 'line' + meta.lineno) ?>
+      <a href="<?js= 'https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L' + meta.lineno ?>" target="_blank"><?js= 'element-project.js #' + meta.lineno ?></a>
     </li></ul></dd>
     <?js } ?>
 
