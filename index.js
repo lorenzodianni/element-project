@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('./dist/elent.js');
+module.exports = require('./dist/element-project.js');
