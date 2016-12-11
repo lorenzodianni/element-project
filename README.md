@@ -1,6 +1,6 @@
 <p align="center"><img src="http://element-project.io/img/Element-Project.png" width="500" alt="Element Project"></p>
 
-# element-project | Work in progress
+#
 
 [![Code Climate](https://codeclimate.com/github/lorenzodianni/element-project/badges/gpa.svg)](https://codeclimate.com/github/lorenzodianni/element-project)
 [![Build Status](https://travis-ci.org/lorenzodianni/element-project.svg?branch=master)](https://travis-ci.org/lorenzodianni/element-project)
