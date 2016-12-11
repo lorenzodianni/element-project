@@ -2,10 +2,11 @@
 [![Build Status](https://travis-ci.org/lorenzodianni/element-project.svg?branch=master)](https://travis-ci.org/lorenzodianni/element-project)
 [![codecov](https://codecov.io/gh/lorenzodianni/element-project/branch/master/graph/badge.svg)](https://codecov.io/gh/lorenzodianni/element-project)
 
-# element-project | Work in progress
+<p align="center">
+<img src="http://element-project.io/img/Element-Project.png" width="500" alt="Element Project">
+</p>
 
-## El : <code>object</code>
-**Kind**: global namespace  
+# element-project | Work in progress
 
 * [El](#El) : <code>object</code>
     * [.appendChild(element, child)](#El.appendChild) ⇒ <code>HTMLElement</code>
