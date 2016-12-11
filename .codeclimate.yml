@@ -15,4 +15,5 @@ ratings:
   - "**.module"
 exclude_paths:
 - dist/
+- docs/
 - src/**/**.spec.js
