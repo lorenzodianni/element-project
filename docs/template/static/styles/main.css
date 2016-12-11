@@ -122,9 +122,10 @@ nav {
   overflow: auto;
 }
 
-nav header {
-  text-align: center;
-  text-transform: uppercase;
+nav img {
+  display: block;
+  width: 100px;
+  margin: 0 auto 16px;
 }
 
 nav h3 {

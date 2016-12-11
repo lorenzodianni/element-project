@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title><?js= title ?> - Documentation</title>
+  <link type="text/css" rel="stylesheet" href="styles/tranquil-heart.css">
+  <link type="text/css" rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
@@ -14,14 +16,13 @@
 
 <label for="nav-trigger" class="overlay"></label>
 
-<nav>
+  <nav>
+    <img src="./../template/img/El.png" alt="Element Project">
     <?js= this.nav ?>
   </nav>
 
   <main>
     <?js= content ?>
-
-    <footer>Element Project</footer>
   </main>
 
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -29,7 +30,5 @@
   <script src="scripts/prettify/lang-css.js"></script>
   <script src="scripts/linenumber.js"></script>
   <script src="scripts/main.js"></script>
-  <link type="text/css" rel="stylesheet" href="styles/tranquil-heart.css">
-  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </body>
 </html>

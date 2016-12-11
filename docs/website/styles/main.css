@@ -122,6 +122,12 @@ nav {
   overflow: auto;
 }
 
+nav img {
+  display: block;
+  width: 100px;
+  margin: 0 auto 16px;
+}
+
 nav h3 {
   margin-top: 12px;
   font-size: 13px;
@@ -189,12 +195,6 @@ nav h2 {
 nav > h2 > a {
    display: block;
    color: hsl(202, 71%, 50%) !important;
-}
-
-footer {
-  color: hsl(0, 0%, 28%);
-  padding: 15px;
-  font-size: 90%;
 }
 
 .ancestors {

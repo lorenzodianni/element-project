@@ -317,7 +317,8 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                     displayName = item.name;
                 }
 
-                itemsNav += '<li>' + linktoFn(item.longname, displayName.replace(/^module:/g, ''));
+                // itemsNav += '<li>' + linktoFn(item.longname, displayName.replace(/^module:/g, ''));
+                itemsNav += '<li>' + linktoFn('http://element-project.io', displayName.replace(/^module:/g, ''));
                 if (methods.length) {
                     itemsNav += "<ul class='methods'>";
 
@@ -335,7 +336,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         });
 
         if (itemsNav !== '') {
-            nav += '<h3>' + itemHeading + '</h3><ul>' + itemsNav + '</ul>';
+            nav += /*<h3>' + itemHeading + '</h3>*/'<ul>' + itemsNav + '</ul>';
         }
     }
 
@@ -365,7 +366,7 @@ function linktoExternal(longName, name) {
  * @return {string} The HTML for the navigation sidebar.
  */
 function buildNav(members) {
-    var nav = '<h2><a href="index.html">Home</a></h2>';
+    var nav = ''; //'<h2><a href="index.html">Home</a></h2>';
     var seen = {};
     var seenTutorials = {};
 
