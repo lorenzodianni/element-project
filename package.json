@@ -1,6 +1,6 @@
 {
   "name": "element-project",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "functional library for element composition",
   "main": "index.js",
   "author": "Lorenzo D'Ianni <lorenzodianni@gmail.com>",
