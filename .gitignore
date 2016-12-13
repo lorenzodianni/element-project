@@ -1,7 +1,6 @@
 .DS_Store
 .idea/
 coverage/
-out/
 
 # Logs
 logs
