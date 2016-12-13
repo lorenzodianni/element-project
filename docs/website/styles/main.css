@@ -462,6 +462,15 @@ dl.param-type {
     display: block;
   }
 
+  header h1 {
+    font-size: 0;
+  }
+  header h1:before {
+    left: 0;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
   main {
     width: 100%;
     margin: 0;
