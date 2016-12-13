@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>Element Project</title><link rel=apple-touch-icon sizes=180x180 href=./favicon/apple-touch-icon.png><link rel=icon type=image/png href=./favicon/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=./favicon/favicon-16x16.png sizes=16x16><link rel=manifest href=./favicon/manifest.json><link rel=mask-icon href=./favicon/safari-pinned-tab.svg color=#595959><link rel="shortcut icon" href=./favicon/favicon.ico><meta name=msapplication-config content=./favicon/browserconfig.xml><meta name=msapplication-starturl content="/"><meta name=application-name content="Element Project"><meta name=apple-mobile-web-app-title content="Element Project"><meta name=theme-color content=#f7da4d><link rel=stylesheet href=styles/tranquil-heart.min.css><link rel=stylesheet href=https://rawgit.com/SidebarJS/sidebarjs/master/dist/sidebarjs.min.css><link rel=stylesheet href=styles/main.css><body><header><div class=hamburger sidebarjs-toggle=""></div><h1>Element Project</h1></header><aside sidebarjs=""><div class=logo></div><ul><li><a href=http://element-project.io>El</a><ul class=methods><li data-type=method><a href=index.html#.appendChild>appendChild</a></li><li data-type=method><a href=index.html#.appendChildren>appendChildren</a></li><li data-type=method><a href=index.html#.create>create</a></li><li data-type=method><a href=index.html#.generate>generate</a></li><li data-type=method><a href=index.html#.get>get</a></li><li data-type=method><a href=index.html#.getAll>getAll</a></li><li data-type=method><a href=index.html#.innerHTML>innerHTML</a></li><li data-type=method><a href=index.html#.innerText>innerText</a></li><li data-type=method><a href=index.html#.insertAdjacentHTML>insertAdjacentHTML</a></li><li data-type=method><a href=index.html#.setAttribute>setAttribute</a></li><li data-type=method><a href=index.html#.style>style</a></li></ul></li></ul></aside><nav><ul><li><a href=http://element-project.io>El</a><ul class=methods><li data-type=method><a href=index.html#.appendChild>appendChild</a></li><li data-type=method><a href=index.html#.appendChildren>appendChildren</a></li><li data-type=method><a href=index.html#.create>create</a></li><li data-type=method><a href=index.html#.generate>generate</a></li><li data-type=method><a href=index.html#.get>get</a></li><li data-type=method><a href=index.html#.getAll>getAll</a></li><li data-type=method><a href=index.html#.innerHTML>innerHTML</a></li><li data-type=method><a href=index.html#.innerText>innerText</a></li><li data-type=method><a href=index.html#.insertAdjacentHTML>insertAdjacentHTML</a></li><li data-type=method><a href=index.html#.setAttribute>setAttribute</a></li><li data-type=method><a href=index.html#.style>style</a></li></ul></li></ul></nav><main><section><article><div class=method><div class=method-detail><h4 class=name id=.appendChild>El.appendChild<span class=signature>(element, child)</span><span class=type-signature>&rarr; {HTMLElement}</span></h4><h5>Parameters:</h5><table class=params><thead><tr><th>Name<th>Type<th class=last>Description<tbody><tr><td class=name><code>element</code><td class=type><span class=param-type>HTMLElement</span><td class="description last"><tr><td class=name><code>child</code><td class=type><span class=param-type>HTMLElement</span><td class="description last"></table><dl class=details><dt class=tag-source>Source:</dt><dd class=tag-source><ul class=dummy><li><a href=https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L22 target=_blank>element-project.js #22</a></li></ul></dd></dl><h5>Returns:</h5><dl class=param-type><dt>Type</dt><dd><span class=param-type>HTMLElement</span></dd></dl></div><div class=method-example><h5>Example</h5><pre class=prettyprint><code>El.appendChild(El.get('.foo'), El.create('.bar'));
+
+// &lt;div class="foo">
+//   &lt;div class="bar">&lt;/div>
+// &lt;/div></code></pre></div></div><div class=method><div class=method-detail><h4 class=name id=.appendChildren>El.appendChildren<span class=signature>(element, children)</span><span class=type-signature>&rarr; {HTMLElement}</span></h4><h5>Parameters:</h5><table class=params><thead><tr><th>Name<th>Type<th class=last>Description<tbody><tr><td class=name><code>element</code><td class=type><span class=param-type>HTMLElement</span><td class="description last"><tr><td class=name><code>children</code><td class=type><span class=param-type>Array.&lt;HTMLElement></span><td class="description last"></table><dl class=details><dt class=tag-source>Source:</dt><dd class=tag-source><ul class=dummy><li><a href=https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L48 target=_blank>element-project.js #48</a></li></ul></dd></dl><h5>Returns:</h5><dl class=param-type><dt>Type</dt><dd><span class=param-type>HTMLElement</span></dd></dl></div><div class=method-example><h5>Example</h5><pre class=prettyprint><code>El.appendChildren(El.get('ul#foo'), [
+   El.generate('li.bar', {innerText: 1}),
+   El.generate('li.baz', {innerText: 2}),
+   El.generate('li.qux', {innerText: 3}),
+]);
+
+// &lt;ul id="foo">
+//   &lt;li class="bar">1&lt;/li>
+//   &lt;li class="baz">2&lt;/li>
+//   &lt;li class="qux">3&lt;/li>
+// &lt;/ul></code></pre></div></div><div class=method><div class=method-detail><h4 class=name id=.create>El.create<span class=signature>(selector)</span><span class=type-signature>&rarr; {HTMLElement}</span></h4><h5>Parameters:</h5><table class=params><thead><tr><th>Name<th>Type<th class=last>Description<tbody><tr><td class=name><code>selector</code><td class=type><span class=param-type>String</span><td class="description last">(tag [, id, class])</table><dl class=details><dt class=tag-source>Source:</dt><dd class=tag-source><ul class=dummy><li><a href=https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L75 target=_blank>element-project.js #75</a></li></ul></dd></dl><h5>Returns:</h5><dl class=param-type><dt>Type</dt><dd><span class=param-type>HTMLElement</span></dd></dl></div><div class=method-example><h5>Example</h5><pre class=prettyprint><code>El.create('div');
+// &lt;div>&lt;/div>
+
+El.create('section#foo.bar.baz');
+// &lt;section id="foo" class="bar baz">&lt;/section>
+
+El.create('#foo.bar.baz');
+// &lt;div id="foo" class="bar baz">&lt;/div></code></pre></div></div><div class=method><div class=method-detail><h4 class=name id=.generate>El.generate<span class=signature>(selector, options)</span><span class=type-signature>&rarr; {HTMLElement}</span></h4><h5>Parameters:</h5><table class=params><thead><tr><th>Name<th>Type<th class=last>Description<tbody><tr><td class=name><code>selector</code><td class=type><span class=param-type>String</span><td class="description last"><tr><td class=name><code>options</code><td class=type><span class=param-type>Object</span><td class="description last"></table><dl class=details><dt class=tag-source>Source:</dt><dd class=tag-source><ul class=dummy><li><a href=https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L212 target=_blank>element-project.js #212</a></li></ul></dd></dl><h5>Returns:</h5><dl class=param-type><dt>Type</dt><dd><span class=param-type>HTMLElement</span></dd></dl></div><div class=method-example><h5>Example</h5><pre class=prettyprint><code>El.generate('ul', {
+   attribute: {
+     id: 'foo',
+     class: 'bar baz'
+   },
+   style: {
+     width: '50%'
+   },
+   children: [
+     El.generate('li', {innerHTML: 1}),
+     El.generate('li', {innerHTML: 2}),
+     El.generate('li', {innerHTML: 3}),
+     El.generate('li', {innerHTML: 4})
+   ]
+});
+
+// &lt;ul id="foo" class="bar baz" style="width: 50%;">
+//   &lt;li>1&lt;/li>
+//   &lt;li>2&lt;/li>
+//   &lt;li>3&lt;/li>
+//   &lt;li>4&lt;/li>
+// &lt;/ul></code></pre></div></div><div class=method><div class=method-detail><h4 class=name id=.get>El.get<span class=signature>(selector)</span><span class=type-signature>&rarr; {HTMLElement}</span></h4><h5>Parameters:</h5><table class=params><thead><tr><th>Name<th>Type<th class=last>Description<tbody><tr><td class=name><code>selector</code><td class=type><span class=param-type>String</span><td class="description last"></table><dl class=details><dt class=tag-source>Source:</dt><dd class=tag-source><ul class=dummy><li><a href=https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L238 target=_blank>element-project.js #238</a></li></ul></dd></dl><h5>Returns:</h5><dl class=param-type><dt>Type</dt><dd><span class=param-type>HTMLElement</span></dd></dl></div><div class=method-example><h5>Example</h5><pre class=prettyprint><code>El.get('div');
+// &lt;div>&lt;/div>
+
+El.get('span#foo.bar');
+// &lt;span id="foo" class="bar">&lt;/span></code></pre></div></div><div class=method><div class=method-detail><h4 class=name id=.getAll>El.getAll<span class=signature>(selector)</span><span class=type-signature>&rarr; {NodeList}</span></h4><h5>Parameters:</h5><table class=params><thead><tr><th>Name<th>Type<th class=last>Description<tbody><tr><td class=name><code>selector</code><td class=type><span class=param-type>String</span><td class="description last"></table><dl class=details><dt class=tag-source>Source:</dt><dd class=tag-source><ul class=dummy><li><a href=https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L256 target=_blank>element-project.js #256</a></li></ul></dd></dl><h5>Returns:</h5><dl class=param-type><dt>Type</dt><dd><span class=param-type>NodeList</span></dd></dl></div><div class=method-example><h5>Example</h5><pre class=prettyprint><code>El.getAll('div');
+// [div, div, div, ...*]
+
+El.getAll('span.foo');
+// [span.foo, span.foo, span.foo, ...*]</code></pre></div></div><div class=method><div class=method-detail><h4 class=name id=.innerHTML>El.innerHTML<span class=signature>(element, html)</span><span class=type-signature>&rarr; {HTMLElement}</span></h4><h5>Parameters:</h5><table class=params><thead><tr><th>Name<th>Type<th class=last>Description<tbody><tr><td class=name><code>element</code><td class=type><span class=param-type>HTMLElement</span><td class="description last"><tr><td class=name><code>html</code><td class=type><span class=param-type>String</span><td class="description last"></table><dl class=details><dt class=tag-source>Source:</dt><dd class=tag-source><ul class=dummy><li><a href=https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L159 target=_blank>element-project.js #159</a></li></ul></dd></dl><h5>Returns:</h5><dl class=param-type><dt>Type</dt><dd><span class=param-type>HTMLElement</span></dd></dl></div><div class=method-example><h5>Example</h5><pre class=prettyprint><code>El.innerHTML(El.get('section'), '&lt;div>Hello World&lt;/div>');
+
+// &lt;section>
+//   &lt;div>Hello World&lt;div>
+// &lt;/section></code></pre></div></div><div class=method><div class=method-detail><h4 class=name id=.innerText>El.innerText<span class=signature>(element, text)</span><span class=type-signature>&rarr; {HTMLElement}</span></h4><h5>Parameters:</h5><table class=params><thead><tr><th>Name<th>Type<th class=last>Description<tbody><tr><td class=name><code>element</code><td class=type><span class=param-type>HTMLElement</span><td class="description last"><tr><td class=name><code>text</code><td class=type><span class=param-type>String</span><td class="description last"></table><dl class=details><dt class=tag-source>Source:</dt><dd class=tag-source><ul class=dummy><li><a href=https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L176 target=_blank>element-project.js #176</a></li></ul></dd></dl><h5>Returns:</h5><dl class=param-type><dt>Type</dt><dd><span class=param-type>HTMLElement</span></dd></dl></div><div class=method-example><h5>Example</h5><pre class=prettyprint><code>El.innerText(El.get('div'), 'Hello World');
+// &lt;div>Hello World&lt;div></code></pre></div></div><div class=method><div class=method-detail><h4 class=name id=.insertAdjacentHTML>El.insertAdjacentHTML<span class=signature>(element, position, html)</span><span class=type-signature>&rarr; {HTMLElement}</span></h4><h5>Parameters:</h5><table class=params><thead><tr><th>Name<th>Type<th class=last>Description<tbody><tr><td class=name><code>element</code><td class=type><span class=param-type>HTMLElement</span><td class="description last"><tr><td class=name><code>position</code><td class=type><span class=param-type>String</span><td class="description last">beforeBegin|afterBegin|beforeEnd|afterEnd<tr><td class=name><code>html</code><td class=type><span class=param-type>String</span><td class="description last"></table><dl class=details><dt class=tag-source>Source:</dt><dd class=tag-source><ul class=dummy><li><a href=https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L298 target=_blank>element-project.js #298</a></li></ul></dd></dl><h5>Returns:</h5><dl class=param-type><dt>Type</dt><dd><span class=param-type>HTMLElement</span></dd></dl></div><div class=method-example><h5>Example</h5><pre class=prettyprint><code>// &lt;div id="test">
+//   &lt;span>World&lt;/span>
+// &lt;/div>
+
+El.insertAdjacentHTML(El.get('#test'), 'beforeBegin', '&lt;span>Hello&lt;/span>');
+// &lt;span>Hello&lt;/span>
+// &lt;div id="test">
+//   &lt;span>World&lt;/span>
+// &lt;/div>
+
+El.insertAdjacentHTML(El.get('#test'), 'afterBegin', '&lt;span>Hello&lt;/span>');
+// &lt;div id="test">
+//   &lt;span>Hello&lt;/span>
+//   &lt;span>World&lt;/span>
+// &lt;/div>
+
+El.insertAdjacentHTML(El.get('#test'), 'beforeEnd', '&lt;span>Hello&lt;/span>');
+// &lt;div id="test">
+//   &lt;span>World&lt;/span>
+//   &lt;span>Hello&lt;/span>
+// &lt;/div>
+
+El.insertAdjacentHTML(El.get('#test'), 'afterEnd', '&lt;span>Hello&lt;/span>');
+// &lt;div id="test">
+//   &lt;span>World&lt;/span>
+// &lt;/div>
+// &lt;span>Hello&lt;/span></code></pre></div></div><div class=method><div class=method-detail><h4 class=name id=.setAttribute>El.setAttribute<span class=signature>(element, attrs)</span><span class=type-signature>&rarr; {HTMLElement}</span></h4><h5>Parameters:</h5><table class=params><thead><tr><th>Name<th>Type<th class=last>Description<tbody><tr><td class=name><code>element</code><td class=type><span class=param-type>HTMLElement</span><td class="description last"><tr><td class=name><code>attrs</code><td class=type><span class=param-type>Object</span><td class="description last"></table><dl class=details><dt class=tag-source>Source:</dt><dd class=tag-source><ul class=dummy><li><a href=https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L110 target=_blank>element-project.js #110</a></li></ul></dd></dl><h5>Returns:</h5><dl class=param-type><dt>Type</dt><dd><span class=param-type>HTMLElement</span></dd></dl></div><div class=method-example><h5>Example</h5><pre class=prettyprint><code>El.setAttribute(El.get('div'), {
+   id: 'foo',
+   class: 'bar baz'
+});
+// &lt;div id="foo" class="bar baz">&lt;/div></code></pre></div></div><div class=method><div class=method-detail><h4 class=name id=.style>El.style<span class=signature>(element, styles)</span><span class=type-signature>&rarr; {HTMLElement}</span></h4><h5>Parameters:</h5><table class=params><thead><tr><th>Name<th>Type<th class=last>Description<tbody><tr><td class=name><code>element</code><td class=type><span class=param-type>HTMLElement</span><td class="description last"><tr><td class=name><code>styles</code><td class=type><span class=param-type>Object</span><td class="description last"></table><dl class=details><dt class=tag-source>Source:</dt><dd class=tag-source><ul class=dummy><li><a href=https://github.com/lorenzodianni/element-project/blob/master/dist/element-project.js#L135 target=_blank>element-project.js #135</a></li></ul></dd></dl><h5>Returns:</h5><dl class=param-type><dt>Type</dt><dd><span class=param-type>HTMLElement</span></dd></dl></div><div class=method-example><h5>Example</h5><pre class=prettyprint><code>El.style(El.get('div'), {
+   width: '100px',
+   height: '100px',
+   background: 'blue'
+});
+// &lt;div style="width: 100px; height: 100px; background: blue">&lt;/div></code></pre></div></div></article></section></main><script src=https://rawgit.com/SidebarJS/sidebarjs/master/dist/sidebarjs.min.js></script><script src=https://rawgit.com/lorenzodianni/element-project/master/dist/element-project.min.js></script><script src=scripts/prettify/prettify.js></script><script>(function() {
+      prettyPrint();
+      var sidebarjs = new SidebarJS();
+      var links = El.getAll('[sidebarjs] a');
+      for(var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', sidebarjs.close.bind(sidebarjs));
+      }
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-88856801-1', 'auto');
+    ga('send', 'pageview');</script>
