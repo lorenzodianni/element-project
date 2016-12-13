@@ -13,7 +13,6 @@ var util = require('util');
 var htmlsafe = helper.htmlsafe;
 var linkto = helper.linkto;
 var resolveAuthorLinks = helper.resolveAuthorLinks;
-var scopeToPunc = helper.scopeToPunc;
 var hasOwnProp = Object.prototype.hasOwnProperty;
 
 var data;
@@ -241,7 +240,6 @@ function generateSourceFiles(sourceFiles, encoding) {
         catch(e) {
             logger.error('Error while generating source file %s: %s', file, e.message);
         }
-
         generate('Source', sourceFiles[file].shortened, [source], sourceOutfile, false);
     });
 }
@@ -586,13 +584,14 @@ exports.publish = function(taffyData, opts, tutorials) {
     view.outputSourceFiles = outputSourceFiles;
 
     // once for all
-    view.nav = buildNav(members);
+    var _nav = buildNav(members);
+    view.nav = _nav.replace(/El.html#/g,'index.html#');
     attachModuleSymbols( find({ longname: {left: 'module:'} }), members.modules );
 
     // generate the pretty-printed source files first so other pages can link to them
-    if (outputSourceFiles) {
-        generateSourceFiles(sourceFiles, opts.encoding);
-    }
+    // if (outputSourceFiles) {
+    //     generateSourceFiles(sourceFiles, opts.encoding);
+    // }
 
     if (members.globals.length) {
         generate('', 'Global', [{kind: 'globalobj'}], globalUrl);
@@ -602,11 +601,11 @@ exports.publish = function(taffyData, opts, tutorials) {
     var files = find({kind: 'file'});
     var packages = find({kind: 'package'});
 
-    generate('', 'Home',
-        packages.concat(
-            [{kind: 'mainpage', readme: opts.readme, longname: (opts.mainpagetitle) ? opts.mainpagetitle : 'Main Page'}]
-        ).concat(files),
-    indexUrl);
+    // generate('', 'Home',
+    //     packages.concat(
+    //         [{kind: 'mainpage', readme: opts.readme, longname: (opts.mainpagetitle) ? opts.mainpagetitle : 'Main Page'}]
+    //     ).concat(files),
+    // indexUrl);
 
     // set up the lists that we'll use to generate pages
     var classes = taffy(members.classes);
@@ -629,7 +628,7 @@ exports.publish = function(taffyData, opts, tutorials) {
 
         var myNamespaces = helper.find(namespaces, {longname: longname});
         if (myNamespaces.length) {
-            generate('Namespace', myNamespaces[0].name, myNamespaces, helper.longnameToUrl[longname]);
+            generate('Namespace', myNamespaces[0].name, myNamespaces, 'index.html');
         }
 
         var myMixins = helper.find(mixins, {longname: longname});

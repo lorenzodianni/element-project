@@ -90,12 +90,67 @@ h6 {
 }
 
 main {
-  margin-left: 250px;
-  width: calc(100% - 250px);
+  overflow: hidden;
+  margin-left: 300px;
+  width: calc(100% - 300px);
 }
 
 header {
-  display: block
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  text-align: center;
+  background: #f7da4d;
+  display: block;
+}
+
+header h1 {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  font-size: 24px;
+  line-height: 48px;
+  color: #383938;
+}
+
+header h1:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -48px;
+  width: 48px;
+  height: 48px;
+  background: url('./../img/logo.png') no-repeat center 44%;
+  background-size: 70%;
+}
+
+header .hamburger {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  -webkit-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+}
+header .hamburger:active {
+  background: rgba(0,0,0, .1);
+}
+header .hamburger:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 56%;
+  height: 2px;
+  background: rgba(0,0,0, .8);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 -4px 0 0 rgba(0,0,0, .8), 0 4px 0 0 rgba(0,0,0, .8);
 }
 
 .variation {
@@ -113,22 +168,33 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  display: block;
-  width: 250px;
+  width: 300px;
   height: 100%;
-  padding: 24px;
-  background: #fff;
-  box-shadow: 0 10px 20px rgba(0,0,0, .19), 0 6px 6px rgba(0,0,0, .23);
-  overflow: auto;
+  padding-top: 48px;
+  background: #FFF;
 }
 
-nav img {
+aside, nav {
+  overflow-y: auto;
+}
+
+aside, header .hamburger {
+  display: none;
+}
+
+aside .logo, nav .logo {
   display: block;
-  width: 100px;
-  margin: 0 auto 16px;
+  width: 100%;
+  height: 140px;
+  min-height: 140px;
+  margin: 0;
+  font-size: 0em;
+  color: rgba(0,0,0,0);
+  background: #f7da4d url('./../img/El.png') no-repeat center;
+  background-size: 100px;
 }
 
-nav h3 {
+aside h3, nav h3 {
   margin-top: 12px;
   font-size: 13px;
   text-transform: uppercase;
@@ -140,17 +206,24 @@ nav h3 {
   color: #000;
 }
 
-nav ul {
+aside ul, nav ul {
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;
   font-size: 100%;
   line-height: 17px;
-  padding: 0;
+  padding: 6px;
   margin: 0;
   list-style-type: none;
 }
 
+aside div > ul, nav > ul {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+aside ul a,
+aside ul a:active,
 nav ul a,
-nav ul a:active {
+nav ul a:active{
   font-family: 'Montserrat', sans-serif;
   line-height: 18px;
   padding: 0;
@@ -158,41 +231,41 @@ nav ul a:active {
   font-size: 12px;
 }
 
+aside ul a:hover,
+aside ul a:active,
 nav ul a:hover,
-nav ul a:active {
+nav ul a:active{
   color: hsl(200, 100%, 43%);
   text-decoration: none;
 }
 
-nav > ul {
-  padding: 0 10px;
-}
-
-nav > ul > li > a {
+aside a, nav a {
   color: #000;
 }
 
-nav ul ul {
+aside ul ul, nav ul ul {
   margin-bottom: 10px
 }
 
-nav ul ul a {
+aside ul ul a, nav ul ul a {
   color: hsl(207, 1%, 60%);
   border-left: 1px solid hsl(207, 10%, 86%);
 }
 
+aside ul ul a,
+aside ul ul a:active,
 nav ul ul a,
-nav ul ul a:active {
-  padding-left: 20px
+nav ul ul a:active{
+  padding: 6px 0 6px 20px;
 }
 
-nav h2 {
+aside h2, nav h2 {
    font-size: 12px;
    margin: 0;
    padding: 0;
 }
 
-nav > h2 > a {
+aside > h2 > a, nav > h2 > a {
    display: block;
    color: hsl(202, 71%, 50%) !important;
 }
@@ -228,7 +301,7 @@ nav > h2 > a {
 }
 
 .method h4.name {
-  padding-top: 56px;
+  padding-top: 80px;
   margin: 0;
 }
 .method-detail, .method-example h5 {
@@ -289,6 +362,7 @@ nav > h2 > a {
   margin-top: 16px;
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.05);
   overflow: auto;
+  border-radius: 4px 0 0 4px;
 }
 
 .prettyprint.source {
@@ -379,149 +453,13 @@ dl.param-type {
   color: #454545
 }
 
-/* navicon button */
-.navicon-button {
-  display: none;
-  position: relative;
-  transition: 0.25s;
-  cursor: pointer;
-  user-select: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #FFF;
-  box-shadow: 0 3px 6px rgba(0,0,0, .16), 0 3px 6px rgba(0,0,0, .23);
-}
-.navicon-button .navicon:before, .navicon-button .navicon:after {
-  transition: 0.25s;
-}
-.navicon-button:hover {
-  transition: 0.5s;
-}
-.navicon-button:hover .navicon:before, .navicon-button:hover .navicon:after {
-  transition: 0.25s;
-}
-
-/* navicon */
-.navicon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60%;
-  height: 2px;
-  background: #0095dd;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  transition: 0.3s;
-  border-radius: 2.5rem;
-}
-.navicon:before, .navicon:after {
-  display: block;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: #0095dd;
-  position: absolute;
-  z-index: -1;
-  transition: 0.3s 0.25s;
-  border-radius: 1rem;
-}
-.navicon:before {
-  top: -6px;
-}
-.navicon:after {
-  top: 6px;
-}
-
-/* open */
-.nav-trigger:checked + label:not(.steps) .navicon:before,
-.nav-trigger:checked + label:not(.steps) .navicon:after {
-  top: 0 !important;
-}
-
-.nav-trigger:checked + label .navicon:before,
-.nav-trigger:checked + label .navicon:after {
-  transition: 0.5s;
-}
-
-/* Minus */
-.nav-trigger:checked + label {
-  transform: scale(0.75);
-}
-
-/* × and + */
-.nav-trigger:checked + label.plus .navicon,
-.nav-trigger:checked + label.x .navicon {
-  background: transparent;
-}
-
-.nav-trigger:checked + label.plus .navicon:before,
-.nav-trigger:checked + label.x .navicon:before {
-  transform: rotate(-45deg);
-  background: #0095dd;
-}
-
-.nav-trigger:checked + label.plus .navicon:after,
-.nav-trigger:checked + label.x .navicon:after {
-  transform: rotate(45deg);
-  background: #0095dd;
-}
-
-.nav-trigger:checked + label.plus {
-  transform: scale(0.75) rotate(45deg);
-}
-
-.nav-trigger:checked ~ nav {
-  left: 0 !important;
-}
-
-.nav-trigger:checked ~ .overlay {
-  display: block;
-}
-
-.nav-trigger {
-  position: fixed;
-  top: 0;
-  clip: rect(0, 0, 0, 0);
-}
-
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: hsla(0, 0%, 0%, 0.5);
-  z-index: 1;
-}
-
 @media only screen and (min-width: 0px) and (max-width: 680px) {
-  body {
-    overflow-x: hidden;
-  }
-
   nav {
-    background: #FFF;
-    width: 250px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: -250px;
-    z-index: 3;
-    transition: left 0.2s;
+    display: none;
   }
 
-  .navicon-button {
-    display: inline-block;
-    position: fixed;
-    top: 3%;
-    right: 4%;
-    z-index: 2;
+  aside, header .hamburger {
+    display: block;
   }
 
   main {
@@ -535,6 +473,7 @@ dl.param-type {
 
   .prettyprint {
     padding: 12px;
+    border-radius: 0;
   }
 
   main h1.page-title {
@@ -543,7 +482,7 @@ dl.param-type {
 }
 
 @media only print {
-  nav {
+  aside, nav {
     display: none;
   }
 
