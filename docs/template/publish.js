@@ -316,7 +316,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 }
 
                 // itemsNav += '<li>' + linktoFn(item.longname, displayName.replace(/^module:/g, ''));
-                itemsNav += '<li>' + linktoFn('http://element-project.io', displayName.replace(/^module:/g, ''));
+                itemsNav += '<li>' + linktoFn('http://element-project.io/index.html', displayName.replace(/^module:/g, ''));
                 if (methods.length) {
                     itemsNav += "<ul class='methods'>";
 
