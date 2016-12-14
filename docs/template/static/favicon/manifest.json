@@ -1,17 +1,20 @@
 {
-	"name": "Element Project",
-	"icons": [
-		{
-			"src": ".\/favicon\/android-chrome-192x192.png",
-			"sizes": "192x192",
-			"type": "image\/png"
-		},
-		{
-			"src": ".\/favicon\/android-chrome-384x384.png",
-			"sizes": "384x384",
-			"type": "image\/png"
-		}
-	],
-	"theme_color": "#f7da4d",
-	"display": "standalone"
+  "name": "Element Project",
+  "short_name": "El",
+  "icons": [
+    {
+      "src": "./android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image\/png"
+    },
+    {
+      "src": "./android-chrome-384x384.png",
+      "sizes": "384x384",
+      "type": "image\/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f7da4d",
+  "theme_color": "#f7da4d"
 }
