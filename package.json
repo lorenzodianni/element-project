@@ -17,7 +17,9 @@
     "minify": "npm run uglifyjs -- --c --m -o dist/element-project.min.js -- dist/element-project.js",
     "dist": "npm run clean && npm run bundle && npm run minify",
     "coverage:codecov": "cat coverage/*/lcov.info | ./node_modules/.bin/codecov",
-    "docs": "./node_modules/.bin/jsdoc dist/element-project.js --configure .jsdoc.json --verbose && ./node_modules/.bin/htmlmin -o ./docs/website/index.min.html ./docs/website/index.html"
+    "docs": " npm run docs:website && npm run docs:minify",
+    "docs:website": "./node_modules/.bin/jsdoc dist/element-project.js --configure .jsdoc.json --verbose",
+    "docs:minify": "./node_modules/.bin/htmlmin -o ./docs/website/index.min.html ./docs/website/index.html"
   },
   "repository": {
     "type": "git",
